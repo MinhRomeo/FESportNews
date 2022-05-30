@@ -11,6 +11,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.31.1",
+    "react-request": "^3.2.0",
     "react-responsive-modal": "^6.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
@@ -41,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "json-loader": "^0.5.7",
     "node-sass": "^7.0.1"
   }
 }
