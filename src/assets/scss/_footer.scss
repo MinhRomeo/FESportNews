@@ -1,53 +1,52 @@
-.footer-area{
+.footer-area {
     background: #100f0f;
-    .footer-logo{
-        margin-bottom:40px;
+    .footer-logo {
+        margin-bottom: 40px;
     }
-    .footer-pera{
-        & p{
-            color:#a8a8a8;
+    .footer-pera {
+        & p {
+            color: #a8a8a8;
 
             font-size: 15px;
             margin-bottom: 50px;
             line-height: 1.8;
         }
-        &.footer-pera2 p{
+        &.footer-pera2 p {
             padding: 0;
         }
     }
-    .footer-tittle{
-        & h4{
+    .footer-tittle {
+        & h4 {
             color: #fff;
             font-size: 20px;
             margin-bottom: 29px;
             font-weight: 500;
             text-transform: capitalize;
         }
-        p{
-            color:#a8a8a8;
+        p {
+            color: #a8a8a8;
         }
-        & ul{
-            & li{
+        & ul {
+            & li {
                 color: #012f5f;
                 margin-bottom: 15px;
-                & a{
+                & a {
                     color: #333333;
                     font-weight: 300;
-                    &:hover{
+                    &:hover {
                         color: $theme-color;
                         padding-left: 5px;
                     }
-                   
                 }
             }
         }
     }
     // Form
-    .footer-form{
+    .footer-form {
         margin-top: 40px;
-        & form{
+        & form {
             position: relative;
-            & input{
+            & input {
                 width: 100%;
                 height: 43px;
                 border: 0;
@@ -55,8 +54,8 @@
                 border-bottom: 1px solid #403f3f;
                 background: none;
             }
-            & .form-icon{
-                & button{
+            & .form-icon {
+                & button {
                     position: absolute;
                     top: 0;
                     right: -20px;
@@ -70,124 +69,119 @@
         }
     }
     .info.error {
-        color:  $theme-color;
+        color: $theme-color;
     }
     // Social
-    .footer-social{
-        & a{
-           & i{
-            color: #222222;
-            margin-right: 12px; 
-            font-size: 19px;
-            @include transition(.4s);
-            &:hover{
-                color: $theme-color;
-                box-shadow: 0 -3px 0 0 rgba(24,24,24,.15) inset, 0 3px 10px rgba(0,0,0,0.3);
-                -webkit-transform: translateY(-3px);
-                -moz-transform: translateY(-3px);
-                -ms-transform: translateY(-3px);
-                transform: translateY(-3px);
+    .footer-social {
+        & a {
+            & i {
+                color: #222222;
+                margin-right: 12px;
+                font-size: 19px;
+                @include transition(0.4s);
+                &:hover {
+                    color: $theme-color;
+                    box-shadow: 0 -3px 0 0 rgba(24, 24, 24, 0.15) inset, 0 3px 10px rgba(0, 0, 0, 0.3);
+                    -webkit-transform: translateY(-3px);
+                    -moz-transform: translateY(-3px);
+                    -ms-transform: translateY(-3px);
+                    transform: translateY(-3px);
+                }
             }
-          
-           }
         }
-    }   
+    }
     // Instagram\
-    .insta-feed{
+    .insta-feed {
         padding-top: 5px;
         margin: -2px;
-        
+
         display: flex;
         flex-wrap: wrap;
-    
+
         li {
             width: 29.33%;
             margin: 2px;
-            img{
+            img {
                 width: 100%;
             }
-          }
         }
+    }
 }
 
-//copy Right 
+//copy Right
 .footer-bottom-area {
     background: #100f0f;
-    .footer-border{
+    .footer-border {
         border-top: 1px solid #242323;
         padding: 40px 0px 23px;
-        @media #{$xs}{
+        @media #{$xs} {
             padding: 35px 0px 20px;
         }
     }
-    .footer-copy-right{
-        & p{
+    .footer-copy-right {
+        & p {
             color: #838383;
             font-weight: 300;
             font-size: 16px;
             line-height: 2;
             margin-bottom: 12px;
-            & i{
-                color:#f27420;
-            }
-            & a{
+            & i {
                 color: #f27420;
-                &:hover{
+            }
+            & a {
+                color: #f27420;
+                &:hover {
                     color: #fff;
                 }
-                 
             }
         }
     }
 }
 
-
 .footer-menu ul li {
     display: inline-block;
     margin-left: 36px;
-    &:first-child{
+    &:first-child {
         margin-left: 0px;
     }
-    @media #{$xs}{
+    @media #{$xs} {
         margin-left: 17px;
     }
-    a{
+    a {
         color: #777777;
         text-transform: uppercase;
         font-size: 12px;
         font-weight: 500;
-        &:hover{
+        &:hover {
             color: #f27420;
         }
     }
 }
 
-.footer-menu{
-
-    @media #{$md}{
-        float: left;
-    } 
-    @media #{$sm}{
+.footer-menu {
+    @media #{$md} {
         float: left;
     }
-    @media #{$xs}{
+    @media #{$sm} {
+        float: left;
+    }
+    @media #{$xs} {
         float: left;
     }
 }
 
-
-
-
 // Pagination Area
 
-.pagination-area{
+.pagination-area {
     .page-item {
         margin: 0;
     }
-    .page-item:first-child {margin: 0;}
+    .page-item:first-child {
+        margin: 0;
+    }
     .page-link {
         color: #777777;
-        border:0;
+        border: 0;
         font-size: 15px;
         text-align: center;
         background: none;
@@ -196,7 +190,7 @@
         outline: 0;
     }
     .page-link:hover {
-        color:$theme-color;
+        color: $theme-color;
     }
     .page-item.active .page-link {
         z-index: 1;
@@ -207,28 +201,37 @@
         position: relative;
         box-shadow: none;
         outline: 0;
-        &::before{
+        &::before {
             position: absolute;
-            content: "";
+            content: '';
             width: 38px;
             height: 3px;
-            background:#fc3f00;
+            background: #fc3f00;
             top: -50px;
             top: -24px;
             left: 0;
         }
-        &:hover{
+        &:hover {
             color: $theme-color;
         }
     }
 }
 .single-wrap .roted {
-	transform: rotate(180deg);
-	display: block;
+    transform: rotate(180deg);
+    display: block;
+
+    &.active {
+        top: -6px;
+        font-size: 24px;
+        color: red;
+    }
 }
 .single-wrap .right-arrow {
-    font-size: 24px;
-    color:red;
     position: relative;
-    top: -6px;
+
+    &.active {
+        top: -6px;
+        font-size: 24px;
+        color: red;
+    }
 }

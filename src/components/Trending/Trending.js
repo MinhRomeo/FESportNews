@@ -1,9 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function Trending(props) {
     return (
-        <React.Fragment>     {/* Trending Area Start */}
+        <React.Fragment>
+            {' '}
+            {/* Trending Area Start */}
             <div className="trending-area fix">
                 <div className="container">
                     <div className="trending-main">
@@ -15,15 +17,9 @@ function Trending(props) {
                                     {/* <p>Rem ipsum dolor sit amet, consectetur adipisicing elit.</p> */}
                                     <div className="trending-animated">
                                         <ul id="js-news" className="js-hidden">
-                                            <li className="news-item">
-                                                Bangladesh dolor sit amet, consectetur adipisicing elit.
-                                            </li>
-                                            <li className="news-item">
-                                                Spondon IT sit amet, consectetur.......
-                                            </li>
-                                            <li className="news-item">
-                                                Rem ipsum dolor sit amet, consectetur adipisicing elit.
-                                            </li>
+                                            <li className="news-item">Bangladesh dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li className="news-item">Spondon IT sit amet, consectetur.......</li>
+                                            <li className="news-item">Rem ipsum dolor sit amet, consectetur adipisicing elit.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -52,17 +48,12 @@ function Trending(props) {
                                         <div className="col-lg-4">
                                             <div className="single-bottom mb-35">
                                                 <div className="trend-bottom-img mb-30">
-                                                    <img
-                                                        src="assets/img/trending/trending_bottom1.jpg"
-                                                        alt=""
-                                                    />
+                                                    <img src="assets/img/trending/trending_bottom1.jpg" alt="" />
                                                 </div>
                                                 <div className="trend-bottom-cap">
                                                     <span className="color1">Lifestyple</span>
                                                     <h4>
-                                                        <a href="details.html">
-                                                            Get the Illusion of Fuller Lashes by “Mascng.”
-                                                        </a>
+                                                        <a href="details.html">Get the Illusion of Fuller Lashes by “Mascng.”</a>
                                                     </h4>
                                                 </div>
                                             </div>
@@ -70,18 +61,13 @@ function Trending(props) {
                                         <div className="col-lg-4">
                                             <div className="single-bottom mb-35">
                                                 <div className="trend-bottom-img mb-30">
-                                                    <img
-                                                        src="assets/img/trending/trending_bottom2.jpg"
-                                                        alt=""
-                                                    />
+                                                    <img src="assets/img/trending/trending_bottom2.jpg" alt="" />
                                                 </div>
                                                 <div className="trend-bottom-cap">
                                                     <span className="color2">Sports</span>
                                                     <h4 />
                                                     <h4>
-                                                        <a href="details.html">
-                                                            Get the Illusion of Fuller Lashes by “Mascng.”
-                                                        </a>
+                                                        <a href="details.html">Get the Illusion of Fuller Lashes by “Mascng.”</a>
                                                     </h4>
                                                 </div>
                                             </div>
@@ -89,18 +75,12 @@ function Trending(props) {
                                         <div className="col-lg-4">
                                             <div className="single-bottom mb-35">
                                                 <div className="trend-bottom-img mb-30">
-                                                    <img
-                                                        src="assets/img/trending/trending_bottom3.jpg"
-                                                        alt=""
-                                                    />
+                                                    <img src="assets/img/trending/trending_bottom3.jpg" alt="" />
                                                 </div>
                                                 <div className="trend-bottom-cap">
                                                     <span className="color3">Travels</span>
                                                     <h4>
-                                                        <a href="details.html">
-                                                            {" "}
-                                                            Welcome To The Best Model Winner Contest
-                                                        </a>
+                                                        <a href="details.html"> Welcome To The Best Model Winner Contest</a>
                                                     </h4>
                                                 </div>
                                             </div>
@@ -117,9 +97,7 @@ function Trending(props) {
                                     <div className="trand-right-cap">
                                         <span className="color1">Concert</span>
                                         <h4>
-                                            <a href="details.html">
-                                                Welcome To The Best Model Winner Contest
-                                            </a>
+                                            <a href="details.html">Welcome To The Best Model Winner Contest</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -130,9 +108,7 @@ function Trending(props) {
                                     <div className="trand-right-cap">
                                         <span className="color3">sea beach</span>
                                         <h4>
-                                            <a href="details.html">
-                                                Welcome To The Best Model Winner Contest
-                                            </a>
+                                            <a href="details.html">Welcome To The Best Model Winner Contest</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -143,9 +119,7 @@ function Trending(props) {
                                     <div className="trand-right-cap">
                                         <span className="color2">Bike Show</span>
                                         <h4>
-                                            <a href="details.html">
-                                                Welcome To The Best Model Winner Contest
-                                            </a>
+                                            <a href="details.html">Welcome To The Best Model Winner Contest</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -156,9 +130,7 @@ function Trending(props) {
                                     <div className="trand-right-cap">
                                         <span className="color4">See beach</span>
                                         <h4>
-                                            <a href="details.html">
-                                                Welcome To The Best Model Winner Contest
-                                            </a>
+                                            <a href="details.html">Welcome To The Best Model Winner Contest</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -169,9 +141,7 @@ function Trending(props) {
                                     <div className="trand-right-cap">
                                         <span className="color1">Skeping</span>
                                         <h4>
-                                            <a href="details.html">
-                                                Welcome To The Best Model Winner Contest
-                                            </a>
+                                            <a href="details.html">Welcome To The Best Model Winner Contest</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -182,10 +152,9 @@ function Trending(props) {
             </div>
             {/* Trending Area End */}
         </React.Fragment>
-
-    )
+    );
 }
 
-Trending.propTypes = {}
+Trending.propTypes = {};
 
-export default Trending
+export default Trending;
