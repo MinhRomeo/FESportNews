@@ -71,7 +71,7 @@
 }
 
 .theme-bg {
-  background: #fc3f00;
+  background: #1890ff;
 }
 
 .brand-bg {
@@ -92,7 +92,7 @@
 }
 
 .theme-color {
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 /*------------------- Responsive --------------------------*/
@@ -102,25 +102,25 @@
 */
 .boxed-btn {
   background: #fff;
-  color: #fc3f00 !important;
+  color: #1890ff !important;
   display: inline-block;
   padding: 18px 44px;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 400;
   border: 0;
-  border: 1px solid #fc3f00;
+  border: 1px solid #1890ff;
   letter-spacing: 3px;
   text-align: center;
-  color: #fc3f00;
+  color: #1890ff;
   text-transform: uppercase;
   cursor: pointer;
 }
 
 .boxed-btn:hover {
-  background: #fc3f00;
+  background: #1890ff;
   color: #fff !important;
-  border: 1px solid #fc3f00;
+  border: 1px solid #1890ff;
 }
 
 .boxed-btn:focus {
@@ -526,11 +526,11 @@ hr {
 .border-btn {
   background: none;
   -moz-user-select: none;
-  border: 2px solid #fc3f00;
+  border: 2px solid #1890ff;
   padding: 18px 38px;
   margin: 10px;
   text-transform: capitalize;
-  color: #fc3f00;
+  color: #1890ff;
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
@@ -554,7 +554,7 @@ hr {
   top: 0;
   width: 100%;
   height: 100%;
-  background: #fc3f00;
+  background: #1890ff;
   z-index: -1;
   -webkit-transition: -webkit-transform 0.5s;
   transition: -webkit-transform 0.5s;
@@ -583,7 +583,7 @@ hr {
 }
 
 .send-btn {
-  background: #fc3f00;
+  background: #1890ff;
   color: #fff;
   font-size: 14px;
   width: 100%;
@@ -607,7 +607,7 @@ hr {
   width: 100%;
   height: 100%;
   background: #e6373d;
-  color: #fc3f00;
+  color: #1890ff;
   z-index: -1;
   -webkit-transition: -webkit-transform 0.5s;
   transition: -webkit-transform 0.5s;
@@ -639,7 +639,7 @@ hr {
 
 /* scrollUp */
 #scrollUp {
-  background: #fc3f00;
+  background: #1890ff;
   height: 50px;
   width: 50px;
   right: 31px;
@@ -2084,7 +2084,7 @@ hr {
   position: relative;
   border-style: solid;
   border-width: 3px;
-  border-top-color: #fc3f00;
+  border-top-color: #1890ff;
   border-bottom-color: transparent;
   border-left-color: transparent;
   border-right-color: transparent;
@@ -2558,7 +2558,7 @@ hr {
 }
 
 .theme-bg {
-  background: #fc3f00;
+  background: #1890ff;
 }
 
 .brand-bg {
@@ -2579,7 +2579,7 @@ hr {
 }
 
 .theme-color {
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -2634,7 +2634,7 @@ hr {
 }
 
 .header-area .header-top .header-info-right .header-social li a:hover {
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 .header-area .header-mid {
@@ -2791,7 +2791,7 @@ hr {
 }
 
 .main-header .main-menu ul li:hover > a {
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 .main-header .main-menu ul ul.submenu {
@@ -2805,7 +2805,7 @@ hr {
   -webkit-box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.05);
           box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.05);
   padding: 17px 0;
-  border-top: 5px solid #fc3f00;
+  border-top: 5px solid #1890ff;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
 }
@@ -2823,7 +2823,7 @@ hr {
 }
 
 .main-header .main-menu ul ul.submenu > li > a:hover {
-  color: #fc3f00;
+  color: #1890ff;
   background: none;
 }
 
@@ -2879,7 +2879,7 @@ hr {
 }
 
 .slicknav_menu .slicknav_icon-bar {
-  background-color: #fc3f00 !important;
+  background-color: #1890ff !important;
 }
 
 .slicknav_nav {
@@ -2897,7 +2897,7 @@ hr {
 
 .slicknav_menu .slicknav_nav a:hover {
   background: transparent;
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 .slicknav_menu {
@@ -3044,7 +3044,7 @@ hr {
 }
 
 .trending-area .trending-main .trending-bottom .single-bottom .trend-bottom-cap h4 a:hover {
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 .trending-area .trending-main .trand-right-single {
@@ -3092,7 +3092,7 @@ hr {
 }
 
 .trending-area .trending-main .trand-right-single .trand-right-cap h4 a:hover {
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 .single-bottom:hover .trend-bottom-img img {
@@ -3217,7 +3217,7 @@ hr {
 }
 
 .weekly-news-area .weekly-wrapper .weekly-single .weekly-caption h4 a:hover {
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -3332,7 +3332,7 @@ hr {
 }
 
 .whats-news-area .whats-news-caption .single-what-news .what-cap h4 a:hover, .about-area .whats-news-caption .single-what-news .what-cap h4 a:hover, .contact-section .whats-news-caption .single-what-news .what-cap h4 a:hover {
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 .whats-news-area .whats-news-caption .single-what-news:hover .what-cap, .about-area .whats-news-caption .single-what-news:hover .what-cap, .contact-section .whats-news-caption .single-what-news:hover .what-cap {
@@ -3413,7 +3413,7 @@ hr {
 }
 
 .whats-news-area .nav-tabs .nav-item.show .nav-link, .whats-news-area .nav-tabs .nav-link.active, .about-area .nav-tabs .nav-item.show .nav-link, .about-area .nav-tabs .nav-link.active, .contact-section .nav-tabs .nav-item.show .nav-link, .contact-section .nav-tabs .nav-link.active {
-  color: #fc3f00;
+  color: #1890ff;
   background: none;
 }
 
@@ -3475,7 +3475,7 @@ hr {
 }
 
 .weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-caption h4 a:hover {
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 .weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-caption p {
@@ -3707,7 +3707,7 @@ hr {
 }
 
 .recent-articles .single-recent .what-cap h4 a:hover {
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 .recent-articles .single-recent:hover .what-cap {
@@ -3814,7 +3814,7 @@ hr {
 }
 
 .footer-area .footer-tittle ul li a:hover {
-  color: #fc3f00;
+  color: #1890ff;
   padding-left: 5px;
 }
 
@@ -3830,7 +3830,7 @@ hr {
   width: 100%;
   height: 43px;
   border: 0;
-  color: #fc3f00;
+  color: #1890ff;
   border-bottom: 1px solid #403f3f;
   background: none;
 }
@@ -3847,7 +3847,7 @@ hr {
 }
 
 .footer-area .info.error {
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 .footer-area .footer-social a i {
@@ -3859,7 +3859,7 @@ hr {
 }
 
 .footer-area .footer-social a i:hover {
-  color: #fc3f00;
+  color: #1890ff;
   -webkit-box-shadow: 0 -3px 0 0 rgba(24, 24, 24, 0.15) inset, 0 3px 10px rgba(0, 0, 0, 0.3);
           box-shadow: 0 -3px 0 0 rgba(24, 24, 24, 0.15) inset, 0 3px 10px rgba(0, 0, 0, 0.3);
   -webkit-transform: translateY(-3px);
@@ -3985,7 +3985,7 @@ hr {
 }
 
 .pagination-area .page-link:hover {
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 .pagination-area .page-item.active .page-link {
@@ -4004,14 +4004,14 @@ hr {
   content: "";
   width: 38px;
   height: 3px;
-  background: #fc3f00;
+  background: #1890ff;
   top: -50px;
   top: -24px;
   left: 0;
 }
 
 .pagination-area .page-item.active .page-link:hover {
-  color: #fc3f00;
+  color: #1890ff;
 }
 
 .single-wrap .roted {
@@ -4042,7 +4042,7 @@ hr {
   content: "";
   width: 75px;
   height: 3px;
-  background: #fc3f00;
+  background: #1890ff;
   left: 0;
   top: 52%;
   -webkit-transform: translateY(-50%);
@@ -4069,7 +4069,7 @@ hr {
 }
 
 .blog_area a:hover, .blog_area a :hover {
-  background: -webkit-linear-gradient(131deg, #fc3f00 0%, #fc3f00 99%);
+  background: -webkit-linear-gradient(131deg, #1890ff 0%, #1890ff 99%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
@@ -4581,7 +4581,7 @@ hr {
   left: 10px;
   display: block;
   color: #fff;
-  background-color: #fc3f00;
+  background-color: #1890ff;
   padding: 8px 15px;
   border-radius: 5px;
 }
@@ -4676,7 +4676,7 @@ hr {
 }
 
 .blog_right_sidebar .search_widget .input-group button {
-  background: #fc3f00;
+  background: #1890ff;
   border-left: 0;
   border: 1px solid #f0e9ff;
   padding: 4px 15px;
@@ -4814,7 +4814,7 @@ hr {
 }
 
 .blog_right_sidebar .tag_cloud_widget ul li a:hover {
-  background: #fc3f00;
+  background: #1890ff;
   color: #fff !important;
   -webkit-text-fill-color: #fff;
   text-decoration: none;
