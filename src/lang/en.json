@@ -1,10 +1,10 @@
 {
   "header": {
     "home": "Home",
-    "shop": "Shop",
-    "page": "Pages",
-    "cart": "Shopping Cart",
-    "checkout": "Checkout",
+    "footballVN": "Viet Nam Football",
+    "footballWorld": "World Football",
+    "transfer": "Transfer",
+    "tennis": "Tennis",
     "details": "Blog Details",
     "item": "item",
     "languages":"English",

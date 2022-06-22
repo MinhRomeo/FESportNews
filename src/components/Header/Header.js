@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Dropdown, Space, Menu, message, Row, Col, Checkbox, Button, AutoComplete, Modal } from 'antd';
+import { Dropdown, Space, Menu, message, Button} from 'antd';
 import 'antd/dist/antd.css';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,36 +8,33 @@ import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import SignUp from '../SignUp/SignUp';
 import Login from '../Login/Login';
 function Header(props) {
-    // const { t, i18n } = useTranslation();
-    // const changeLanguage = (lng) => {
-    //     console.log(lng);
-    //     i18n.changeLanguage(lng);
-    //     console.log(lng);
-    //     localStorage.setItem('lang', lng);
-    // };
-    // const handleMenuClick = (e) => {
-    //   message.info('Click on menu item.');
+    const { t, i18n } = useTranslation();
+    
+    const onClick = ({ key }) => {
+        message.success(`Language has changed!`);
+        console.log(typeof key);
+        i18n.changeLanguage(key);
+        localStorage.setItem('lang', key);
+      };
+      const toggle = ({ key }) => i18n.changeLanguage(key);
+      const menu = (
+        <Menu
+          onClick={onClick}
+          items={[
+            {
+              label: 'English',
+              key: 'en',
+              
+            },
+            {
+              label: 'Vietnamese',
+              key: 'vn',
+              
+            },
+          ]}
+        />
+      );
       
-    //   console.log('click', e);
-    // };
-    // const menu = (
-    //   <Menu
-    //     onClick={handleMenuClick}
-    //     items={[
-    //       {
-    //         label: '1st menu item',
-    //         key: '1',
-    //         icon: faGlobe,
-            
-    //       },
-    //       {
-    //         label: '2nd menu item',
-    //         key: '2',
-    //         icon: faGlobe,
-    //       },
-    //     ]}
-    //   />
-    // );
     return (
         <React.Fragment>
             <div id="preloader-active">
@@ -58,31 +55,19 @@ function Header(props) {
                                 <div className="col-xl-12">
                                     <div className="row d-flex justify-content-between align-items-center">
                                         <div className="header-info-left">
-                                            {/* <div className="header__top__right__language">
-                                                <FontAwesomeIcon icon={faGlobe} style={{ marginRight: '10px' }} />
-                                                <div>{t('header.languages')}</div>
-                                                <span className="arrow_carrot-down"></span>
-                                                <ul>
-                                                    <li>
-                                                        <a onClick={() => changeLanguage('en')} href="#">
-                                                            {t('header.languages_1')}
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a onClick={() => changeLanguage('vn')} href="#">
-                                                            {' '}
-                                                            {t('header.languages_2')}
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div> */}
-                                            {/* <Dropdown overlay={menu}>
-                                                <Button>
+                                          <ul className='header-social'>
+                                            <li>
+                                            <Dropdown overlay={menu}>
+                                                <Button type='primary' onClick={(e) => e.preventDefault()}>
                                                     <Space>
-                                                    {t('header.languages')}
+                                                        <FontAwesomeIcon icon={faGlobe}></FontAwesomeIcon>
+                                                        {t('header.languages')}
                                                     </Space>
                                                 </Button>
-                                            </Dropdown> */}
+                                            </Dropdown>
+                                            </li>
+                                          </ul>
+                                           
                                         </div>
 
                                         <div className="header-info-right">
@@ -150,16 +135,16 @@ function Header(props) {
                                             <nav>
                                                 <ul id="navigation">
                                                     <li>
-                                                        <Link to="/">Home</Link>
+                                                        <Link to="/">  {t('header.home')}</Link>
                                                     </li>
                                                     <li>
-                                                        <Link to="/category">Category</Link>
+                                                        <Link to="/category">{t('header.shop')}</Link>
                                                     </li>
                                                     <li>
-                                                        <Link to="/about">About</Link>
+                                                        <Link to="/about">{t('header.page')}</Link>
                                                     </li>
                                                     <li>
-                                                        <Link to="/lastnews">Latest News</Link>
+                                                        <Link to="/lastnews">{t('header.home')}</Link>
                                                     </li>
                                                     <li>
                                                         <Link to="/contact">Contact</Link>
