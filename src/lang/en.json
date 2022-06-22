@@ -5,13 +5,11 @@
     "footballWorld": "World Football",
     "transfer": "Transfer",
     "tennis": "Tennis",
-    "details": "Blog Details",
-    "item": "item",
+    "basketball": "Basketball",
+    "photo": "Photos",
+    "video":"Videos",
     "languages":"English",
-    "languages_1":"English",
     "languages_2":"Vietnamese",
-    "blog": "Blog",
-    "contract": "Contract",
 
     "login": "Login",
     "register": "Register"
@@ -21,8 +19,8 @@
     "address": "Address",
     "phone": "Phone",
     "email": "Email",
-    "title1": "Join Our Newsletter Now",
-    "title2": "Get E-mail updates about our latest shop and special offers.",
+    "contents": "License: No. 15/GP-TTĐT of the Ministry of Information and Communications dated January 29, 2010 and GP No. 56/GP-STTTT of the Department of Information and Communications of Ho Chi Minh City. Ho Chi Minh City issued on September 3, 2021. Responsible for content: Journalist, Dr. Nguyen Hoang Minh. Reproduction in any form is prohibited without written consent. Operated and developed by Sports Love Joint Stock Company.",
+    "title2": "Get E-mail updates about our latest news and feedback.",
     "subscribe": "Subscribe"
   },
 

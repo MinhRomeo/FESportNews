@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { useTranslation } from 'react-i18next';
 //Adding antd modules and style
 import { Button, Modal, Form, Input, Radio } from 'antd';
 // import "antd/dist/antd.css";
@@ -10,6 +10,7 @@ import { login } from 'slices/authentication';
 import toast from 'react-hot-toast';
 
 function Login(props) {
+    const { t, i18n } = useTranslation();
     const CollectionCreateForm2 = ({ visible, onCreate, onCancel }) => {
         const [form] = Form.useForm();
         const handleValidateEmail = async (e) => {
@@ -123,7 +124,7 @@ function Login(props) {
                     }}
                 >
                     {' '}
-                    Login{' '}
+                    {t('header.login')}{' '}
                 </Button>
                 <CollectionCreateForm2
                     visible={visible}

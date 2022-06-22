@@ -138,30 +138,22 @@ function Header(props) {
                                                         <Link to="/">  {t('header.home')}</Link>
                                                     </li>
                                                     <li>
-                                                        <Link to="/category">{t('header.shop')}</Link>
+                                                        <Link to="/category">{t('header.footballVN')}</Link>
                                                     </li>
                                                     <li>
-                                                        <Link to="/about">{t('header.page')}</Link>
+                                                        <Link to="/lastnews">{t('header.footballWorld')}</Link>
                                                     </li>
                                                     <li>
-                                                        <Link to="/lastnews">{t('header.home')}</Link>
+                                                        <Link to="/lastnews">{t('header.transfer')}</Link>
                                                     </li>
                                                     <li>
-                                                        <Link to="/contact">Contact</Link>
+                                                        <Link to="/lastnews">{t('header.basketball')}</Link>
                                                     </li>
                                                     <li>
-                                                        <a href="#">Pages</a>
-                                                        <ul className="submenu">
-                                                            <li>
-                                                                <Link to="/blog">Blog</Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link to="/blogdetail">Blog Details</Link>
-                                                            </li>
-                                                            <li>
-                                                                <a href="details.html">Categori Details</a>
-                                                            </li>
-                                                        </ul>
+                                                        <Link to="/lastnews">{t('header.photo')}</Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link to="/lastnews">{t('header.video')}</Link>
                                                     </li>
                                                 </ul>
                                             </nav>

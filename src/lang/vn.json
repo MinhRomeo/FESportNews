@@ -1,17 +1,15 @@
 {
   "header": {
     "home": "Trang chủ",
-    "shop": "Cửa hàng",
-    "page": "Trang",
-    "cart": "Giỏ hàng",
-    "checkout": "Thanh toán",
-    "details": "Chi tiết",
-    "item": "Sản phẩm",
-    "blog": "Bài viết",
-    "contract": "Liên hệ",
+    "footballVN": "Bóng đá Việt Nam",
+    "footballWorld": "Bóng đá Thế Giới",
+    "transfer": "Chuyển nhượng",
+    "tennis": "Quần vợt",
+    "basketball": "Bóng rổ",
+    "photo": "Ảnh",
+    "video":"Videos",
     "languages":"Tiếng Việt",
-    "languages_1":"Tiếng Anh",
-    "languages_2":"Tiếng Việt",
+    "languages_2":"Vietnamese",
     "login": "Đăng nhập",
     "register": "Đăng ký"
   },
@@ -20,8 +18,8 @@
     "address": "Địa chỉ",
     "phone": "Số điện thoại",
     "email": "Email",
-    "title1": "Gửi email cho chúng tôi",
-    "title2": "Để nhận được các ưu đãi và phần quà mới nhất",
+    "contents": "Giấy phép: Số 15/GP-TTĐT của Bộ Thông tin - Truyền thông ngày 29/01/2010 và GP số 56/GP-STTTT của Sở Thông tin và Truyền thông TP. Hồ Chí Minh cấp ngày 03/09/2021. Chịu trách nhiệm nội dung: Nhà báo, TS. Nguyễn Hoàng Minh. Cấm sao chép dưới mọi hình thức nếu không có sự chấp thuận bằng văn bản. Vận hành và phát triển bởi Công ty Cổ phần Yêu Thể Thao.",
+    "title2": "Để nhận được các thông tin mới nhất và phản hồi cho chúng tôi",
     "subscribe": "Gửi"
   },
 
