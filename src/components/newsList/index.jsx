@@ -16,8 +16,8 @@ function NewsList() {
         const params = queryString.parse(location.search);
         return {
             ...params,
-            _page: Number(params._page) || 1,
-            _limit: Number(params._limit) || 9,
+            pageIndex: Number(params.pageIndex) || 1,
+            pageSize: Number(params.pageSize) || 9,
             _sort: params._sort || 'salePrice:ASC',
         };
     }, [location.search]);
@@ -43,7 +43,7 @@ function NewsList() {
     const handlePageChange = (page) => {
         const filters = {
             ...queryParams,
-            _page: page,
+            pageIndex: page,
         };
 
         navigate({
@@ -96,7 +96,16 @@ function NewsList() {
                                     <div className="what-cap">
                                         <span className="color1">{newItem.author}</span>
                                         <h4>
-                                            <a href="#">{newItem.title}</a>
+                                            <span
+                                                onClick={() =>
+                                                    navigate(
+                                                        { pathname: location.pathname, search: queryString.stringify({ itemId: 6 }) },
+                                                        { replace: true }
+                                                    )
+                                                }
+                                            >
+                                                {newItem.title}
+                                            </span>
                                         </h4>
                                     </div>
                                 </div>
@@ -116,13 +125,13 @@ function NewsList() {
                                         <li
                                             className="page-item"
                                             onClick={() => {
-                                                if (pagination.page === 1) return;
+                                                if (pagination.page <= 1) return;
                                                 handlePageChange(pagination.page - 1);
                                             }}
                                         >
-                                            <a className="page-link" href="#">
+                                            <button className="page-link">
                                                 <span className={`flaticon-arrow roted ${pagination.page > 1 && 'active'}`} />
-                                            </a>
+                                            </button>
                                         </li>
                                         {listPages.map((page) => (
                                             <li
@@ -130,9 +139,7 @@ function NewsList() {
                                                 className={`page-item ${pagination.page === page && 'active'}`}
                                                 onClick={() => handlePageChange(page)}
                                             >
-                                                <a className="page-link" href="#">
-                                                    {page}
-                                                </a>
+                                                <button className="page-link">{page}</button>
                                             </li>
                                         ))}
                                         <li
@@ -143,13 +150,13 @@ function NewsList() {
                                                 handlePageChange(pagination.page + 1);
                                             }}
                                         >
-                                            <a className="page-link" href="#">
+                                            <button className="page-link">
                                                 <span
                                                     className={`flaticon-arrow right-arrow ${
                                                         pagination.page < listPages.length && 'active'
                                                     }`}
                                                 />
-                                            </a>
+                                            </button>
                                         </li>
                                     </ul>
                                 </nav>

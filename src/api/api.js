@@ -21,7 +21,7 @@ const api = {
         return axiosClient.post(`${prefixUrl}/register`, {
             email: email,
             password: password,
-            nickname: nickname,
+            userName: nickname,
         });
     },
 

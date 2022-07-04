@@ -1,14 +1,16 @@
+import { productResponse } from 'assets/fakeData';
 import axiosClient from 'lib/axios';
 
 const api = {
     async getAll(params) {
-        // Transform _page to _start
+        // Transform pageIndex to _start
         const newParams = { ...params };
-        newParams._start = !params._page || params._page <= 1 ? 0 : (params._page - 1) * (params._limit || 50);
+        newParams._start = !params.pageIndex || params.pageIndex <= 1 ? 0 : (params.pageIndex - 1) * (params.pageSize || 50);
         // Remove un-needed key
-        delete newParams._page;
+        delete newParams.pageIndex;
         // Fetch news list + count
         // const newsList = await axiosClient.get('/newss', { params: newParams });
+        // Fake Data
         const newsList = [
             {
                 id: 1,
@@ -78,12 +80,15 @@ const api = {
             },
         ];
         // const count = await axiosClient.get('/newss/count', { params: newParams });
+        // const producResponse = productResponse;
+        // const productData = producResponse.data;
+        // const contents = productData?.content;
         // Build response and return
         return {
             data: newsList,
             pagination: {
-                page: params._page,
-                limit: params._limit,
+                page: params.pageIndex,
+                limit: params.pageSize,
                 total: newsList.length,
             },
         };

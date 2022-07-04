@@ -1,163 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Blog(props) {
+function NewsList(props) {
+    const { newsList } = props;
     return (
         <section className="blog_area section-padding">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 mb-5 mb-lg-0">
                         <div className="blog_left_sidebar">
-                            <article className="blog_item">
-                                <div className="blog_item_img">
-                                    <img className="card-img rounded-0" src="assets/img/blog/single_blog_1.png" alt="" />
-                                    <a href="#" className="blog_item_date">
-                                        <h3>15</h3>
-                                        <p>Jan</p>
-                                    </a>
-                                </div>
-                                <div className="blog_details">
-                                    <a className="d-inline-block" href="single-blog.html">
-                                        <h2>Google inks pact for new 35-storey office</h2>
-                                    </a>
-                                    <p>
-                                        That dominion stars lights dominion divide years for fourth have don't stars is that he earth it
-                                        first without heaven in place seed it second morning saying.
-                                    </p>
-                                    <ul className="blog-info-link">
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-user" /> Travel, Lifestyle
+                            {newsList.map((newsItem) => {
+                                return (
+                                    <article className="blog_item">
+                                        <div className="blog_item_img">
+                                            <img className="card-img rounded-0" src={newsItem.image} alt="" />
+                                            <a href="#" className="blog_item_date">
+                                                <h3>15</h3>
+                                                <p>Jan</p>
                                             </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-comments" /> 03 Comments
+                                        </div>
+                                        <div className="blog_details">
+                                            <a className="d-inline-block" href="single-blog.html">
+                                                <h2>{newsItem.title}</h2>
                                             </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <article className="blog_item">
-                                <div className="blog_item_img">
-                                    <img className="card-img rounded-0" src="assets/img/blog/single_blog_2.png" alt="" />
-                                    <a href="#" className="blog_item_date">
-                                        <h3>15</h3>
-                                        <p>Jan</p>
-                                    </a>
-                                </div>
-                                <div className="blog_details">
-                                    <a className="d-inline-block" href="single-blog.html">
-                                        <h2>Google inks pact for new 35-storey office</h2>
-                                    </a>
-                                    <p>
-                                        That dominion stars lights dominion divide years for fourth have don't stars is that he earth it
-                                        first without heaven in place seed it second morning saying.
-                                    </p>
-                                    <ul className="blog-info-link">
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-user" /> Travel, Lifestyle
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-comments" /> 03 Comments
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <article className="blog_item">
-                                <div className="blog_item_img">
-                                    <img className="card-img rounded-0" src="assets/img/blog/single_blog_3.png" alt="" />
-                                    <a href="#" className="blog_item_date">
-                                        <h3>15</h3>
-                                        <p>Jan</p>
-                                    </a>
-                                </div>
-                                <div className="blog_details">
-                                    <a className="d-inline-block" href="single-blog.html">
-                                        <h2>Google inks pact for new 35-storey office</h2>
-                                    </a>
-                                    <p>
-                                        That dominion stars lights dominion divide years for fourth have don't stars is that he earth it
-                                        first without heaven in place seed it second morning saying.
-                                    </p>
-                                    <ul className="blog-info-link">
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-user" /> Travel, Lifestyle
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-comments" /> 03 Comments
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <article className="blog_item">
-                                <div className="blog_item_img">
-                                    <img className="card-img rounded-0" src="assets/img/blog/single_blog_4.png" alt="" />
-                                    <a href="#" className="blog_item_date">
-                                        <h3>15</h3>
-                                        <p>Jan</p>
-                                    </a>
-                                </div>
-                                <div className="blog_details">
-                                    <a className="d-inline-block" href="single-blog.html">
-                                        <h2>Google inks pact for new 35-storey office</h2>
-                                    </a>
-                                    <p>
-                                        That dominion stars lights dominion divide years for fourth have don't stars is that he earth it
-                                        first without heaven in place seed it second morning saying.
-                                    </p>
-                                    <ul className="blog-info-link">
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-user" /> Travel, Lifestyle
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-comments" /> 03 Comments
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <article className="blog_item">
-                                <div className="blog_item_img">
-                                    <img className="card-img rounded-0" src="assets/img/blog/single_blog_5.png" alt="" />
-                                    <a href="#" className="blog_item_date">
-                                        <h3>15</h3>
-                                        <p>Jan</p>
-                                    </a>
-                                </div>
-                                <div className="blog_details">
-                                    <a className="d-inline-block" href="single-blog.html">
-                                        <h2>Google inks pact for new 35-storey office</h2>
-                                    </a>
-                                    <p>
-                                        That dominion stars lights dominion divide years for fourth have don't stars is that he earth it
-                                        first without heaven in place seed it second morning saying.
-                                    </p>
-                                    <ul className="blog-info-link">
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-user" /> Travel, Lifestyle
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-comments" /> 03 Comments
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </article>
+                                            <p>{newsItem.content}</p>
+                                            <ul className="blog-info-link">
+                                                <li>
+                                                    <a href="#">
+                                                        <i className="fa fa-user" /> Travel, Lifestyle
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i className="fa fa-comments" /> 03 Comments
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </article>
+                                );
+                            })}
+
                             <nav className="blog-pagination justify-content-center d-flex">
                                 <ul className="pagination">
                                     <li className="page-item">
@@ -379,6 +262,6 @@ function Blog(props) {
     );
 }
 
-Blog.propTypes = {};
+NewsList.propTypes = {};
 
-export default Blog;
+export default NewsList;
