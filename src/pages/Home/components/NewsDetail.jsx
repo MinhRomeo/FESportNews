@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'store';
+import { newsSelector } from 'utils/selectors';
+import { useParams } from 'react-router';
 
-function BlogDetail(props) {
+function NewsDetail(props) {
+    const { news } = useSelector(newsSelector);
+    const newsId = useParams().newsId;
+    console.log('NewsDetail ~ newsId', newsId);
+
+    const newsDetail = useMemo(() => {
+        console.log('newsDetail ~ news.list', news.list);
+        return news.list.find((news) => news.id.toString() === newsId);
+    }, [news, newsId]);
+
     return (
         <section className="blog_area single-post-area section-padding">
             <div className="container">
@@ -9,10 +21,10 @@ function BlogDetail(props) {
                     <div className="col-lg-8 posts-list">
                         <div className="single-post">
                             <div className="feature-img">
-                                <img className="img-fluid" src="assets/img/blog/single_blog_1.png" alt="" />
+                                <img className="img-fluid" src={newsDetail.image} alt="" />
                             </div>
                             <div className="blog_details">
-                                <h2>Second divided from form fish beast made every of seas all gathered us saying he our</h2>
+                                <h2>{newsDetail.name}</h2>
                                 <ul className="blog-info-link mt-3 mb-4">
                                     <li>
                                         <a href="#">
@@ -25,11 +37,7 @@ function BlogDetail(props) {
                                         </a>
                                     </li>
                                 </ul>
-                                <p className="excert">
-                                    MCSE boot camps have its supporters and its detractors. Some people do not understand why you should
-                                    have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the
-                                    camp price. However, who has the willpower
-                                </p>
+                                <p className="excert">{newsDetail.content}</p>
                                 <p>
                                     MCSE boot camps have its supporters and its detractors. Some people do not understand why you should
                                     have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the
@@ -279,13 +287,7 @@ function BlogDetail(props) {
                                 <form action="#">
                                     <div className="form-group">
                                         <div className="input-group mb-3">
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                placeholder="Search Keyword"
-                                                onFocus="this.placeholder = ''"
-                                                onBlur="this.placeholder = 'Search Keyword'"
-                                            />
+                                            <input type="text" className="form-control" placeholder="Search Keyword" />
                                             <div className="input-group-append">
                                                 <button className="btns" type="button">
                                                     <i className="ti-search" />
@@ -468,6 +470,6 @@ function BlogDetail(props) {
     );
 }
 
-BlogDetail.propTypes = {};
+NewsDetail.propTypes = {};
 
-export default BlogDetail;
+export default NewsDetail;

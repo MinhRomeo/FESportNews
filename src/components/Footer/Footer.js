@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
 function Footer(props) {
-  const { t, i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     return (
         <footer>
             {/* Footer Start*/}
@@ -21,9 +21,7 @@ function Footer(props) {
                                     </div>
                                     <div className="footer-tittle">
                                         <div className="footer-pera">
-                                            <p>
-                                            {t('footer.contents')}
-                                            </p>
+                                            <p>{t('footer.contents')}</p>
                                         </div>
                                     </div>
                                     {/* social */}
@@ -61,8 +59,8 @@ function Footer(props) {
                                                     id="newsletter-form-email"
                                                     placeholder="Email Address"
                                                     className="placeholder hide-on-focus"
-                                                    // onfocus="this.placeholder = ''"
-                                                    // onblur="this.placeholder = ' Email Address '"
+                                                    // onFocus="this.placeholder = ''"
+                                                    // onBlur="this.placeholder = ' Email Address '"
                                                 />
                                                 <div className="form-icon">
                                                     <button
@@ -81,7 +79,6 @@ function Footer(props) {
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -92,12 +89,9 @@ function Footer(props) {
                         <div className="row d-flex align-items-center justify-content-between">
                             <div className="col-lg-6">
                                 <div className="footer-copy-right">
-                                    <p> 
-                                        Copyright © All rights reserved by Minh & Thiện
-                                    </p>
+                                    <p>Copyright © All rights reserved by Minh & Thiện</p>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>

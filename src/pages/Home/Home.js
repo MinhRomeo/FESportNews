@@ -1,144 +1,179 @@
-import NewsList from 'components/newsList';
-import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'store';
 import { newsSelector } from 'utils/selectors';
-import Trending from '../../components/Trending/Trending';
-import Video from '../../components/Video/Video';
+import { Pagination } from './components/Filter/Pagination';
+import NewsList from './components/NewsList';
+import { useEffect, useMemo, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router';
+import queryString from 'query-string';
+import newsApi from 'api/newsApi';
+import { FilterByCategory } from './components/Filter/FilterByCategory';
+import { SubSection } from './components/SubSection';
+
+const listCategory = [
+    { name: 'LifeStyle', class: 'profile', index: 2 },
+    { name: 'Travel', class: 'contact', index: 3 },
+    { name: 'Fashion', class: 'last', index: 4 },
+    { name: 'Sports', class: 'Sport', index: 5 },
+    { name: 'Technology', class: 'technology', index: 6 },
+];
+
 function Home(props) {
     const { news } = useSelector(newsSelector);
+    const { t } = useTranslation();
+    const navigate = useNavigate();
+
+    const location = useLocation();
+    const [newsList, setNewsList] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    const queryParams = useMemo(() => {
+        const params = queryString.parse(location.search);
+
+        return {
+            ...params,
+            pageIndex: Number(params.pageIndex) || 1,
+            pageSize: Number(params.pageSize) || 3,
+            category: '',
+        };
+    }, [location.search]);
+    const [pagination, setPagination] = useState({
+        limit: 3,
+        total: 8,
+        page: 1,
+    });
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const { data, pagination } = await newsApi.getAll({
+                    ...queryParams,
+                    keyWord: queryParams.keyWord ? queryParams.keyWord : '',
+                });
+                setNewsList(data);
+                setPagination(pagination);
+            } catch (error) {
+                console.log('Failed to fetch product list: ', error);
+            }
+            setLoading(false);
+        })();
+    }, [queryParams]);
+
+    const handlePageChange = (page) => {
+        const filters = {
+            ...queryParams,
+            pageIndex: page,
+        };
+
+        navigate({
+            pathname: location.pathname,
+            search: queryString.stringify(filters),
+        });
+    };
+
+    const handleSearchFilter = (newKeyWord) => {
+        const filters = {
+            ...queryParams,
+        };
+        if (newKeyWord) {
+            filters.keyWord = newKeyWord;
+        } else {
+            delete filters.keyWord;
+        }
+
+        navigate({
+            pathname: location.pathname,
+            search: queryString.stringify(filters),
+        });
+    };
+
+    const handleFilterChange = (newFilters) => {
+        const filters = {
+            ...queryParams,
+            ...newFilters,
+        };
+
+        navigate({
+            pathname: location.pathname,
+            search: queryString.stringify(filters),
+        });
+    };
+
+    const setNewFilters = (newFilters) => {
+        navigate({
+            pathname: location.pathname,
+            search: queryString.stringify(newFilters),
+        });
+    };
+
     return (
-        <main>
-            {/* Whats New Start */}
-            <section className="whats-news-area pt-50 pb-20">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="row d-flex justify-content-between">
-                                <div className="col-lg-3 col-md-3">
-                                    <div className="section-tittle mb-30">
-                                        <h3>Whats New</h3>
-                                    </div>
-                                </div>
-                                <div className="col-lg-9 col-md-9">
-                                    <div className="properties__button">
-                                        {/*Nav Button  */}
-                                        <nav>
-                                            <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                                                <a
-                                                    className="nav-item nav-link active"
-                                                    id="nav-home-tab"
-                                                    data-toggle="tab"
-                                                    href="#nav-home"
-                                                    role="tab"
-                                                    aria-controls="nav-home"
-                                                    aria-selected="true"
-                                                >
-                                                    All
-                                                </a>
-                                                <a
-                                                    className="nav-item nav-link"
-                                                    id="nav-profile-tab"
-                                                    data-toggle="tab"
-                                                    href="#nav-profile"
-                                                    role="tab"
-                                                    aria-controls="nav-profile"
-                                                    aria-selected="false"
-                                                >
-                                                    Lifestyle
-                                                </a>
-                                                <a
-                                                    className="nav-item nav-link"
-                                                    id="nav-contact-tab"
-                                                    data-toggle="tab"
-                                                    href="#nav-contact"
-                                                    role="tab"
-                                                    aria-controls="nav-contact"
-                                                    aria-selected="false"
-                                                >
-                                                    Travel
-                                                </a>
-                                                <a
-                                                    className="nav-item nav-link"
-                                                    id="nav-last-tab"
-                                                    data-toggle="tab"
-                                                    href="#nav-last"
-                                                    role="tab"
-                                                    aria-controls="nav-contact"
-                                                    aria-selected="false"
-                                                >
-                                                    Fashion
-                                                </a>
-                                                <a
-                                                    className="nav-item nav-link"
-                                                    id="nav-Sports"
-                                                    data-toggle="tab"
-                                                    href="#nav-nav-Sport"
-                                                    role="tab"
-                                                    aria-controls="nav-contact"
-                                                    aria-selected="false"
-                                                >
-                                                    Sports
-                                                </a>
-                                                <a
-                                                    className="nav-item nav-link"
-                                                    id="nav-technology"
-                                                    data-toggle="tab"
-                                                    href="#nav-techno"
-                                                    role="tab"
-                                                    aria-controls="nav-contact"
-                                                    aria-selected="false"
-                                                >
-                                                    Technology
-                                                </a>
+        <>
+            <main>
+                {/* Whats New Start */}
+                <section className="whats-news-area pt-50 pb-20">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-8">
+                                <FilterByCategory onChange={handleFilterChange} listCategory={listCategory} />
+                                <div className="row">
+                                    <div className="col-12">
+                                        {/* Nav Card */}
+                                        <div className="tab-content" id="nav-tabContent">
+                                            {/* card one */}
+                                            <div
+                                                className="tab-pane fade show active"
+                                                id="nav-home"
+                                                role="tabpanel"
+                                                aria-labelledby="nav-home-tab"
+                                            >
+                                                <NewsList newsList={newsList} />
                                             </div>
-                                        </nav>
-                                        {/*End Nav Button  */}
+                                            {/* Card two */}
+                                            <div
+                                                className="tab-pane fade"
+                                                id="nav-profile"
+                                                role="tabpanel"
+                                                aria-labelledby="nav-profile-tab"
+                                            >
+                                                <NewsList newsList={newsList} />
+                                            </div>
+                                            {/* Card three */}
+                                            <div
+                                                className="tab-pane fade"
+                                                id="nav-contact"
+                                                role="tabpanel"
+                                                aria-labelledby="nav-contact-tab"
+                                            >
+                                                <NewsList newsList={newsList} />
+                                            </div>
+                                            {/* card fure */}
+                                            <div className="tab-pane fade" id="nav-last" role="tabpanel" aria-labelledby="nav-last-tab">
+                                                <NewsList newsList={newsList} />
+                                            </div>
+                                            {/* card Five */}
+                                            <div className="tab-pane fade" id="nav-nav-Sport" role="tabpanel" aria-labelledby="nav-Sports">
+                                                <NewsList newsList={newsList} />
+                                            </div>
+                                            {/* card Six */}
+                                            <div className="tab-pane fade" id="nav-techno" role="tabpanel" aria-labelledby="nav-technology">
+                                                <NewsList newsList={newsList} />
+                                            </div>
+                                        </div>
+                                        {/* End Nav Card */}
                                     </div>
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col-12">
-                                    {/* Nav Card */}
-                                    <div className="tab-content" id="nav-tabContent">
-                                        {/* card one */}
-                                        <div
-                                            className="tab-pane fade show active"
-                                            id="nav-home"
-                                            role="tabpanel"
-                                            aria-labelledby="nav-home-tab"
-                                        >
-                                            <NewsList newsList={news.list} />
-                                        </div>
-                                        {/* Card two */}
-                                        <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                            <NewsList newsList={news.list} />
-                                        </div>
-                                        {/* Card three */}
-                                        <div className="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                                            <NewsList newsList={news.list} />
-                                        </div>
-                                        {/* card fure */}
-                                        <div className="tab-pane fade" id="nav-last" role="tabpanel" aria-labelledby="nav-last-tab">
-                                            <NewsList newsList={news.list} />
-                                        </div>
-                                        {/* card Five */}
-                                        <div className="tab-pane fade" id="nav-nav-Sport" role="tabpanel" aria-labelledby="nav-Sports">
-                                            <NewsList newsList={news.list} />
-                                        </div>
-                                        {/* card Six */}
-                                        <div className="tab-pane fade" id="nav-techno" role="tabpanel" aria-labelledby="nav-technology">
-                                            <NewsList newsList={news.list} />
-                                        </div>
-                                    </div>
-                                    {/* End Nav Card */}
-                                </div>
+                            <div className="col-lg-4">
+                                <SubSection onSearch={handleSearchFilter} />
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            {/* Whats New End */}
-        </main>
+                </section>
+                {/* Whats New End */}
+                <Pagination pagination={pagination} handlePageChange={handlePageChange} />
+            </main>
+        </>
     );
 }
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Dropdown, Space, Menu, message, Button} from 'antd';
+import { Dropdown, Space, Menu, message, Button } from 'antd';
 import 'antd/dist/antd.css';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,32 +8,30 @@ import SignUp from '../SignUp/SignUp';
 import Login from '../Login/Login';
 function Header(props) {
     const { t, i18n } = useTranslation();
-    
+
     const onClick = ({ key }) => {
         message.success(`Language has changed!`);
         console.log(typeof key);
         i18n.changeLanguage(key);
         localStorage.setItem('lang', key);
-      };
-      const toggle = ({ key }) => i18n.changeLanguage(key);
-      const menu = (
+    };
+    const toggle = ({ key }) => i18n.changeLanguage(key);
+    const menu = (
         <Menu
-          onClick={onClick}
-          items={[
-            {
-              label: 'English',
-              key: 'en',
-              
-            },
-            {
-              label: 'Vietnamese',
-              key: 'vn',
-              
-            },
-          ]}
+            onClick={onClick}
+            items={[
+                {
+                    label: 'English',
+                    key: 'en',
+                },
+                {
+                    label: 'Vietnamese',
+                    key: 'vn',
+                },
+            ]}
         />
-      );
-      
+    );
+
     return (
         <React.Fragment>
             <div id="preloader-active">
@@ -55,19 +52,18 @@ function Header(props) {
                                 <div className="col-xl-12">
                                     <div className="row d-flex justify-content-between align-items-center">
                                         <div className="header-info-left">
-                                          <ul className='header-social'>
-                                            <li>
-                                            <Dropdown overlay={menu}>
-                                                <Button type='primary' onClick={(e) => e.preventDefault()}>
-                                                    <Space>
-                                                        <FontAwesomeIcon icon={faGlobe}></FontAwesomeIcon>
-                                                        {t('header.languages')}
-                                                    </Space>
-                                                </Button>
-                                            </Dropdown>
-                                            </li>
-                                          </ul>
-                                           
+                                            <ul className="header-social">
+                                                <li>
+                                                    <Dropdown overlay={menu}>
+                                                        <Button type="primary" onClick={(e) => e.preventDefault()}>
+                                                            <Space>
+                                                                <FontAwesomeIcon icon={faGlobe}></FontAwesomeIcon>
+                                                                {t('header.languages')}
+                                                            </Space>
+                                                        </Button>
+                                                    </Dropdown>
+                                                </li>
+                                            </ul>
                                         </div>
 
                                         <div className="header-info-right">
@@ -116,62 +112,6 @@ function Header(props) {
                                         <div className="header-banner f-right ">
                                             <img src="assets/img/hero/header_card.jpg" alt="" />
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="header-bottom header-sticky">
-                            <div className="container">
-                                <div className="row align-items-center">
-                                    <div className="col-xl-10 col-lg-10 col-md-12 header-flex">
-                                        {/* sticky */}
-                                        <div className="sticky-logo">
-                                            <a href="index.html">
-                                                <img src="assets/img/logo/logo.png" alt="" />
-                                            </a>
-                                        </div>
-                                        {/* Main-menu */}
-                                        <div className="main-menu d-none d-md-block">
-                                            <nav>
-                                                <ul id="navigation">
-                                                    <li>
-                                                        <Link to="/">  {t('header.home')}</Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link to="/category">{t('header.footballVN')}</Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link to="/lastnews">{t('header.footballWorld')}</Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link to="/lastnews">{t('header.transfer')}</Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link to="/lastnews">{t('header.basketball')}</Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link to="/lastnews">{t('header.photo')}</Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link to="/lastnews">{t('header.video')}</Link>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                    </div>
-                                    <div className="col-xl-2 col-lg-2 col-md-4">
-                                        <div className="header-right-btn f-right d-none d-lg-block">
-                                            <i className="fas fa-search special-tag" />
-                                            <div className="search-box">
-                                                <form action="#">
-                                                    <input type="text" placeholder="Search" />
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* Mobile Menu */}
-                                    <div className="col-12">
-                                        <div className="mobile_menu d-block d-md-none" />
                                     </div>
                                 </div>
                             </div>

@@ -1,0 +1,55 @@
+.scoreboard {
+    display: flex;
+    flex-flow: column nowrap;
+    background: #fbf9ff;
+    padding: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.scoreboard__header {
+    h5 {
+        color: rgba(0, 0, 0, 0.85);
+        font-size: 20px;
+    }
+}
+.scoreboard__list {
+    width: 100%;
+}
+.scoreboard__item {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-top: 20px;
+
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.scoreboard__item + .scoreboard__item {
+    border-top: 1px solid #000;
+}
+
+.scoreboard__item-section {
+    width: 40%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+.scoreboard__item-center {
+    flex: 1;
+    display: flex;
+}
+
+.scoreboard__item-img {
+    width: 100%;
+    object-fit: contain;
+}
+.scoreboard__item-name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.scoreboard__item-score {
+    margin: auto;
+}

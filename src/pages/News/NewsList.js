@@ -77,8 +77,8 @@ function NewsList(props) {
                                                 type="text"
                                                 className="form-control"
                                                 placeholder="Search Keyword"
-                                                //   onfocus="this.placeholder = ''"
-                                                //   onblur="this.placeholder = 'Search Keyword'"
+                                                //   onFocus="this.placeholder = ''"
+                                                //   onBlur="this.placeholder = 'Search Keyword'"
                                             />
                                             <div className="input-group-append">
                                                 <button className="btns" type="button">
@@ -243,8 +243,8 @@ function NewsList(props) {
                                         <input
                                             type="email"
                                             className="form-control"
-                                            onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Enter email'"
+                                            onFocus="this.placeholder = ''"
+                                            onBlur="this.placeholder = 'Enter email'"
                                             placeholder="Enter email"
                                             required=""
                                         />
