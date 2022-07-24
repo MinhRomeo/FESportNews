@@ -5,12 +5,12 @@ import { newsSelector } from 'utils/selectors';
 import { Pagination } from './components/Filter/Pagination';
 import NewsList from './components/NewsList';
 import { useEffect, useMemo, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
-import newsApi from 'api/newsApi';
+import newsApi ,{api2}from 'api/newsApi';
 import { FilterByCategory } from './components/Filter/FilterByCategory';
 import { SubSection } from './components/SubSection';
-
+import axiosClient from 'lib/axios';
 const listCategory = [
     { name: 'LifeStyle', class: 'profile', index: 2 },
     { name: 'Travel', class: 'contact', index: 3 },
@@ -27,9 +27,9 @@ function Home(props) {
     const location = useLocation();
     const [newsList, setNewsList] = useState([]);
     const [loading, setLoading] = useState(true);
-
     const queryParams = useMemo(() => {
         const params = queryString.parse(location.search);
+        
 
         return {
             ...params,
@@ -38,21 +38,29 @@ function Home(props) {
             category: '',
         };
     }, [location.search]);
+    
     const [pagination, setPagination] = useState({
-        limit: 3,
-        total: 8,
+        limit: 1,
+        total: 7,
         page: 1,
     });
+    console.log("pagination & query")
+    console.log(pagination)
+    console.log(queryParams)
 
     useEffect(() => {
         (async () => {
             try {
-                const { data, pagination } = await newsApi.getAll({
+                const {  pagination } = await newsApi.getAll({
                     ...queryParams,
                     keyWord: queryParams.keyWord ? queryParams.keyWord : '',
                 });
-                setNewsList(data);
+               
                 setPagination(pagination);
+                const {data} = await axiosClient.post(`/product/getAllProduct?pageIndex=${queryParams.pageIndex-1}`);
+                console.log(data.products);
+                setNewsList(data.products)
+                
             } catch (error) {
                 console.log('Failed to fetch product list: ', error);
             }

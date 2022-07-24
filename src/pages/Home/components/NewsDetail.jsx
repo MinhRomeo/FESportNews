@@ -1,34 +1,53 @@
-import React, { useMemo } from 'react';
+import React, { useMemo ,useEffect,useState} from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'store';
 import { newsSelector } from 'utils/selectors';
-import { useParams } from 'react-router';
-
+import { useParams } from 'react-router-dom';
+import newsApi ,{api3}from 'api/newsApi';
 function NewsDetail(props) {
     const { news } = useSelector(newsSelector);
     const newsId = useParams().newsId;
     console.log('NewsDetail ~ newsId', newsId);
-
-    const newsDetail = useMemo(() => {
-        console.log('newsDetail ~ news.list', news.list);
-        return news.list.find((news) => news.id.toString() === newsId);
-    }, [news, newsId]);
-
+    const [detailNew, setDetailNew] = useState({});
+    // const newsDetail = useMemo(() => {
+    //     console.log('newsDetail ~ news.list', news.list);
+    //     return news.list.find((news) => news.id.toString() === newsId);
+    // }, [news, newsId]);
+    useEffect(() => {
+        (async () => {
+            try {
+                // const { data, pagination } = await newsApi.getAll({
+                //     ...queryParams,
+                //     keyWord: queryParams.keyWord ? queryParams.keyWord : '',
+                // });
+                // setNewsList(data);
+                // setPagination(pagination);
+                const {data} = await api3.getProductDetails(newsId);
+                console.log(data);
+                setDetailNew(data)
+                
+            } catch (error) {
+                console.log('Failed to fetch product list: ', error);
+            }
+         
+        })();
+    }, []);
     return (
         <section className="blog_area single-post-area section-padding">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 posts-list">
                         <div className="single-post">
-                            <div className="feature-img">
-                                <img className="img-fluid" src={newsDetail.image} alt="" />
+                            <div className="feature-img" style={{display:"flex"}}>
+                                <img className="img-fluid" style={{width:"400px",objectFit:"cover"}} src={detailNew?.imageEntity?.[0].url} alt="" />
+                                <img className="img-fluid"  style={{width:"400px",objectFit:"cover"}} src={detailNew?.imageEntity?.[1].url} alt="" />
                             </div>
                             <div className="blog_details">
-                                <h2>{newsDetail.name}</h2>
+                                {/* <h2>{newsDetail.name}</h2> */}
                                 <ul className="blog-info-link mt-3 mb-4">
                                     <li>
                                         <a href="#">
-                                            <i className="fa fa-user" /> Travel, Lifestyle
+                                            <i className="fa fa-user" /> Sport News
                                         </a>
                                     </li>
                                     <li>
@@ -37,31 +56,17 @@ function NewsDetail(props) {
                                         </a>
                                     </li>
                                 </ul>
-                                <p className="excert">{newsDetail.content}</p>
-                                <p>
-                                    MCSE boot camps have its supporters and its detractors. Some people do not understand why you should
-                                    have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the
-                                    camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has
-                                    the willpower to actually
-                                </p>
+                                <p className="excert">Trân trọng gửi tới quý vị độc giả lịch thi đấu bóng đá hôm nay và ngày mai được cập nhật mới nhất, chính xác nhất của các giải đấu.</p>
+                              
                                 <div className="quote-wrapper">
                                     <div className="quotes">
-                                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you should
-                                        have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of
-                                        the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training.
+                                      {detailNew.name}
                                     </div>
                                 </div>
                                 <p>
-                                    MCSE boot camps have its supporters and its detractors. Some people do not understand why you should
-                                    have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the
-                                    camp price. However, who has the willpower
+                                    {detailNew.descriptions}
                                 </p>
-                                <p>
-                                    MCSE boot camps have its supporters and its detractors. Some people do not understand why you should
-                                    have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the
-                                    camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has
-                                    the willpower to actually
-                                </p>
+                               
                             </div>
                         </div>
                         <div className="navigation-top">
@@ -139,147 +144,19 @@ function NewsDetail(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="blog-author">
-                            <div className="media align-items-center">
-                                <img src="assets/img/blog/author.png" alt="" />
-                                <div className="media-body">
-                                    <a href="#">
-                                        <h4>Harvard milan</h4>
-                                    </a>
-                                    <p>
-                                        Second divided from form fish beast made. Every of seas all gathered use saying you're, he our
-                                        dominion twon Second divided from
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="comments-area">
-                            <h4>05 Comments</h4>
-                            <div className="comment-list">
-                                <div className="single-comment justify-content-between d-flex">
-                                    <div className="user justify-content-between d-flex">
-                                        <div className="thumb">
-                                            <img src="assets/img/comment/comment_1.png" alt="" />
-                                        </div>
-                                        <div className="desc">
-                                            <p className="comment">
-                                                Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                                Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                            </p>
-                                            <div className="d-flex justify-content-between">
-                                                <div className="d-flex align-items-center">
-                                                    <h5>
-                                                        <a href="#">Emilly Blunt</a>
-                                                    </h5>
-                                                    <p className="date">December 4, 2017 at 3:12 pm </p>
-                                                </div>
-                                                <div className="reply-btn">
-                                                    <a href="#" className="btn-reply text-uppercase">
-                                                        reply
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="comment-list">
-                                <div className="single-comment justify-content-between d-flex">
-                                    <div className="user justify-content-between d-flex">
-                                        <div className="thumb">
-                                            <img src="assets/img/comment/comment_2.png" alt="" />
-                                        </div>
-                                        <div className="desc">
-                                            <p className="comment">
-                                                Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                                Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                            </p>
-                                            <div className="d-flex justify-content-between">
-                                                <div className="d-flex align-items-center">
-                                                    <h5>
-                                                        <a href="#">Emilly Blunt</a>
-                                                    </h5>
-                                                    <p className="date">December 4, 2017 at 3:12 pm </p>
-                                                </div>
-                                                <div className="reply-btn">
-                                                    <a href="#" className="btn-reply text-uppercase">
-                                                        reply
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="comment-list">
-                                <div className="single-comment justify-content-between d-flex">
-                                    <div className="user justify-content-between d-flex">
-                                        <div className="thumb">
-                                            <img src="assets/img/comment/comment_3.png" alt="" />
-                                        </div>
-                                        <div className="desc">
-                                            <p className="comment">
-                                                Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                                Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                            </p>
-                                            <div className="d-flex justify-content-between">
-                                                <div className="d-flex align-items-center">
-                                                    <h5>
-                                                        <a href="#">Emilly Blunt</a>
-                                                    </h5>
-                                                    <p className="date">December 4, 2017 at 3:12 pm </p>
-                                                </div>
-                                                <div className="reply-btn">
-                                                    <a href="#" className="btn-reply text-uppercase">
-                                                        reply
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="comment-form">
-                            <h4>Leave a Reply</h4>
-                            <form className="form-contact comment_form" action="#" id="commentForm">
-                                <div className="row">
-                                    <div className="col-12">
-                                        <div className="form-group">
-                                            <textarea
-                                                className="form-control w-100"
-                                                name="comment"
-                                                id="comment"
-                                                cols={30}
-                                                rows={9}
-                                                placeholder="Write Comment"
-                                                defaultValue={''}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6">
-                                        <div className="form-group">
-                                            <input className="form-control" name="name" id="name" type="text" placeholder="Name" />
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6">
-                                        <div className="form-group">
-                                            <input className="form-control" name="email" id="email" type="email" placeholder="Email" />
-                                        </div>
-                                    </div>
-                                    <div className="col-12">
-                                        <div className="form-group">
-                                            <input className="form-control" name="website" id="website" type="text" placeholder="Website" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="form-group">
-                                    <button type="submit" className="button button-contactForm btn_1 boxed-btn">
-                                        Send Message
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+                       
+                        <iframe
+                  title="comment"
+                  src="http://www.facebook.com/plugins/comments.php?href=http://localhost:3000"
+                  scrolling="no"
+                  frameBorder="0"
+                  style={{
+                    border: "none",
+                    overflow: "hidden",
+                    width: "100%",
+                    height: "1000px",
+                  }}
+                ></iframe>
                     </div>
                     <div className="col-lg-4">
                         <div className="blog_right_sidebar">

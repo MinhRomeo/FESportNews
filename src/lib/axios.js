@@ -10,8 +10,8 @@ const BASE_URL = process.env.REACT_APP_API_URL;
  * Create Axios Instance
  */
 const axiosClient = axios.create({
-    baseURL: BASE_URL,
-    withCredentials: true,
+    baseURL: "http://localhost:8012/api",
+    // withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
         // 'Access-Control-Allow-Origin': '*'

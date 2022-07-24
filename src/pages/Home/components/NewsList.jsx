@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 function NewsList(props) {
     const { newsList } = props;
@@ -12,12 +12,12 @@ function NewsList(props) {
                             <div key={newsItem.id} className="col-lg-6 col-md-6">
                                 <div className="single-what-news mb-100">
                                     <div className="what-img">
-                                        <img src={newsItem.image} alt="" />
+                                        <img src={newsItem?.imageEntity[0]?.url} alt="" />
                                     </div>
-                                    <div className="what-cap">
-                                        <span className="color1">{newsItem.author}</span>
+                                    <div className="what-cap" style={{padding:"0"}}>
+                                        <span className="color1">{newsItem?.name}</span>
                                         <h4>
-                                            <span onClick={() => navigate(`/${newsItem.id}`, { replace: true })}>{newsItem.title}</span>
+                                            <span onClick={() => navigate(`/${newsItem.id}`, { replace: true })}>{newsItem?.name}</span>
                                         </h4>
                                     </div>
                                 </div>

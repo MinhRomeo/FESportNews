@@ -4,28 +4,28 @@ import { Form, Input, Modal } from 'antd';
 
 const CollectionCreateForm2 = ({ visible, onCreate, onCancel }) => {
     const [form] = Form.useForm();
-    const handleValidateEmail = async (e) => {
-        const emailValue = e.target.value;
-        try {
-            const request = {
-                email: emailValue,
-            };
+    // const handleValidateEmail = async (e) => {
+    //     const emailValue = e.target.value;
+    //     try {
+    //         const request = {
+    //             email: emailValue,
+    //         };
 
-            //Call API validate email
-            const validateResponse = { status: 'failed' };
-            if (validateResponse?.status === 'success') {
-                //Do something
-            } else {
-                console.log('validate failed');
-                form.setFields([
-                    {
-                        name: 'email',
-                        errors: ['Email is already exist'],
-                    },
-                ]);
-            }
-        } catch (error) {}
-    };
+    //         //Call API validate email
+    //         const validateResponse = { status: 'failed' };
+    //         if (validateResponse?.status === 'success') {
+    //             //Do something
+    //         } else {
+    //             console.log('validate failed');
+    //             form.setFields([
+    //                 {
+    //                     name: 'email',
+    //                     errors: ['Email is already exist'],
+    //                 },
+    //             ]);
+    //         }
+    //     } catch (error) {}
+    // };
     return (
         <Modal
             visible={visible}
@@ -53,11 +53,11 @@ const CollectionCreateForm2 = ({ visible, onCreate, onCancel }) => {
                 }}
             >
                 <Form.Item
-                    name="email"
-                    label="E-mail"
+                    name="username"
+                    label="Username"
                     rules={[
                         {
-                            type: 'email',
+                            type: 'username',
                             message: 'The input is not valid E-mail!',
                         },
                         {
@@ -65,7 +65,7 @@ const CollectionCreateForm2 = ({ visible, onCreate, onCancel }) => {
                             message: 'Please input your E-mail!',
                         },
                     ]}
-                    onBlur={handleValidateEmail}
+                    // onBlur={handleValidateEmail}
                 >
                     <Input />
                 </Form.Item>

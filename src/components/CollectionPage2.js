@@ -19,7 +19,7 @@ const CollectionsPage2 = () => {
         try {
             console.log('Received values of form: ', values);
 
-            await dispatch(login(values.email, values.password));
+            await dispatch(login(values.username, values.password));
 
             if (mounted.current) {
                 setVisible(false);

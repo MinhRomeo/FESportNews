@@ -20,15 +20,17 @@ const CollectionsPage1 = () => {
         console.log('Received values of form: ', values);
         setVisible(false);
         try {
-            await dispatch(register(values.email, values.password, values.nickname));
+            await dispatch(register(values.email, values.password, values.userName));
 
             if (mounted.current) {
                 toast.success('Register Successfully');
-                await dispatch(login(values.email, values.password));
+                // await dispatch(login(values.email, values.password));
+                alert("Đăng kí thành công")
             }
         } catch (err) {
             console.log('The following error occurred: ', err);
-            setVisible(false);
+            setVisible(true);
+            alert(err?.message)
             toast.error(err?.message);
         }
     };

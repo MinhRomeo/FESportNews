@@ -4,9 +4,9 @@ const prefixUrl = 'auth';
 
 const api = {
     /* Login */
-    login: (email, password) => {
+    login: (username, password) => {
         return axiosClient.post(`${prefixUrl}/login`, {
-            email: email,
+            username: username,
             password: password,
         });
     },
@@ -17,11 +17,11 @@ const api = {
     },
 
     /* Register */
-    register: (email, password, nickname) => {
-        return axiosClient.post(`${prefixUrl}/register`, {
+    register: (email, password, userName) => {
+        return axiosClient.post(`${prefixUrl}/signup`, {
             email: email,
             password: password,
-            userName: nickname,
+            userName: userName,
         });
     },
 

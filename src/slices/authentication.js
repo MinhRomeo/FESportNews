@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import authApi from 'api/api';
 import { clearAuthTokens, setAuthTokens } from 'axios-jwt';
+import { NULL } from 'sass';
 
 import { configAppInit } from 'utils/config';
 
@@ -86,17 +87,22 @@ const slice = createSlice({
  * @param password
  * @returns
  */
-export const login = (email, password) => async (dispatch) => {
+export const login = (username, password) => async (dispatch) => {
     try {
-        const response = await authApi.login(email, password);
+        const response = await authApi.login(username, password);
 
         dispatch(slice.actions.login(response));
+        if(response!==null){
+              
+                localStorage.setItem("username", username);
+                window.location.reload()
+        }
     } catch (error) {
         dispatch(slice.actions.setError(error));
     }
 };
-export const register = (email, password, nickname) => async (dispatch) => {
-    const response = await authApi.register(email, password, nickname);
+export const register = (email, password, userName) => async (dispatch) => {
+    const response = await authApi.register(email, password, userName);   
     return response;
 };
 

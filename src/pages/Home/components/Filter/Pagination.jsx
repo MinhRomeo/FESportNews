@@ -3,7 +3,7 @@ import React from 'react';
 export const Pagination = (props) => {
     const { pagination, handlePageChange } = props;
     const paginationLength = Math.ceil(pagination.total / pagination.limit);
-
+    console.log(pagination.page)
     return (
         /*Start pagination */
         <div className="pagination-area pb-45 text-center">
