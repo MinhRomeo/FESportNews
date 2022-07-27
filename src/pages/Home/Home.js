@@ -30,6 +30,7 @@ function Home(props) {
     const [recentPost,setRecentPost]=useState([]);
     const [loading, setLoading] = useState(true);
     const [searchValue,setSearchValue]=useState(1);
+    const [scoreBoard,setScoreBoard]=useState([]);
     // const [queryParams, setQueryParams] = useState({});
     console.log(searchValue)
     const queryParams = useMemo(() => {
@@ -94,21 +95,21 @@ function Home(props) {
 
     },[newsList])
 
-    // useEffect(()=>{
-    //     (async () => {
-    //         try {
-    //             const {data} = await axiosClient.post(`/product/ScoreBoardByCategory?id=${searchValue==1||searchValue==2?1:searchValue}`);
-    //             console.log(data)
-    //             console.log("aaaaaaa")
-           
+    useEffect(()=>{
+        (async () => {
+            try {
+                const {data} = await axiosClient.post(`/product/showScoreBoard?id=${searchValue==1||searchValue==2?1:searchValue}`);
+                console.log(data)
+                console.log("aaaaaaa")
+                setScoreBoard(data)
                 
-    //         } catch (error) {
-    //             console.log('Failed to fetch product list: ', error);
-    //         }
-    //         setLoading(false);
-    //     })();
+            } catch (error) {
+                console.log('Failed to fetch product list: ', error);
+            }
+            setLoading(false);
+        })();
 
-    // },[queryParams])
+    },[queryParams])
     
 
     const handlePageChange = (page) => {
@@ -218,7 +219,7 @@ function Home(props) {
                                 </div>
                             </div>
                             <div className="col-lg-4">
-                                <SubSection recentPost={recentPost} onSearch={handleSearchFilter} />
+                                <SubSection recentPost={recentPost} scoreBoard={scoreBoard} onSearch={handleSearchFilter} />
                             </div>
                         </div>
                     </div>

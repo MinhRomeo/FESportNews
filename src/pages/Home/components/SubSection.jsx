@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ScoreBoard } from './Scoreboard';
 
 export const SubSection = (props) => {
-    const { onSearch ,recentPost} = props;
+    const { onSearch ,recentPost,scoreBoard} = props;
     const [searchValue, setSearchValue] = useState('');
     const navigate = useNavigate();
     return (
@@ -30,7 +30,7 @@ export const SubSection = (props) => {
                         </div>
                     </form>
                 </aside>
-                <ScoreBoard />
+                <ScoreBoard scoreBoard={scoreBoard}/>
                 <aside className="single_sidebar_widget popular_post_widget">
                     <h3 className="widget_title">Top</h3>
                     {
