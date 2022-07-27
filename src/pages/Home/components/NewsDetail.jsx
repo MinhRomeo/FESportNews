@@ -177,7 +177,7 @@ function NewsDetail(props) {
                                     </button>
                                 </form>
                             </aside>
-                            <aside className="single_sidebar_widget post_category_widget">
+                            {/* <aside className="single_sidebar_widget post_category_widget">
                                 <h4 className="widget_title">Category</h4>
                                 <ul className="list cat-list">
                                     <li>
@@ -285,7 +285,7 @@ function NewsDetail(props) {
                                         <a href="#">illustration</a>
                                     </li>
                                 </ul>
-                            </aside>
+                            </aside> */}
                             <aside className="single_sidebar_widget instagram_feeds">
                                 <h4 className="widget_title">Instagram Feeds</h4>
                                 <ul className="instagram_row flex-wrap">

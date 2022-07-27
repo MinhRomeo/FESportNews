@@ -1,11 +1,12 @@
 // @flow
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ScoreBoard } from './Scoreboard';
 
 export const SubSection = (props) => {
-    const { onSearch } = props;
+    const { onSearch ,recentPost} = props;
     const [searchValue, setSearchValue] = useState('');
-
+    const navigate = useNavigate();
     return (
         <>
             <div className="blog_right_sidebar">
@@ -32,42 +33,21 @@ export const SubSection = (props) => {
                 <ScoreBoard />
                 <aside className="single_sidebar_widget popular_post_widget">
                     <h3 className="widget_title">Top</h3>
-                    <div className="media post_item">
-                        <img src="assets/img/post/post_1.png" alt="post" />
-                        <div className="media-body">
-                            <a href="single-blog.html">
-                                <h3>From life was you fish...</h3>
-                            </a>
-                            <p>January 12, 2019</p>
-                        </div>
-                    </div>
-                    <div className="media post_item">
-                        <img src="assets/img/post/post_2.png" alt="post" />
-                        <div className="media-body">
-                            <a href="single-blog.html">
-                                <h3>The Amazing Hubble</h3>
-                            </a>
-                            <p>02 Hours ago</p>
-                        </div>
-                    </div>
-                    <div className="media post_item">
-                        <img src="assets/img/post/post_3.png" alt="post" />
-                        <div className="media-body">
-                            <a href="single-blog.html">
-                                <h3>Astronomy Or Astrology</h3>
-                            </a>
-                            <p>03 Hours ago</p>
-                        </div>
-                    </div>
-                    <div className="media post_item">
-                        <img src="assets/img/post/post_4.png" alt="post" />
-                        <div className="media-body">
-                            <a href="single-blog.html">
-                                <h3>Asteroids telescope</h3>
-                            </a>
-                            <p>01 Hours ago</p>
-                        </div>
-                    </div>
+                    {
+                        recentPost.map((item,index)=>{
+                          return  <div className="media post_item" key={index}>
+                                    <img src={item.imageEntity?.[1]?.url} alt="post" style={{width:"100px",height:"100px"}}/>
+                                    <div className="media-body">
+                                        <span onClick={() => navigate(`/${item?.id}`, { replace: true })}>
+                                            <h3  style={{cursor:"pointer"}}>{item?.name}</h3>
+                                        </span>
+                                        <p>January 12, 2019</p>
+                                    </div>
+                                </div>
+                        })
+                    }
+                 
+                   
                 </aside>
             </div>
         </>

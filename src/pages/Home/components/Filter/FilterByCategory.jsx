@@ -23,7 +23,7 @@ export const FilterByCategory = (props) => {
                     {/*Nav Button  */}
                     <nav>
                         <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                            <button
+                            {/* <button
                                 style={{ backgroundColor: 'transparent', cursor: 'pointer' }}
                                 className="nav-item nav-link active"
                                 id="nav-home-tab"
@@ -31,9 +31,10 @@ export const FilterByCategory = (props) => {
                                 role="tab"
                                 aria-controls="nav-home"
                                 aria-selected="true"
+                                
                             >
                                 All
-                            </button>
+                            </button> */}
                             {listCategory.map((category) => {
                                 return (
                                     <button

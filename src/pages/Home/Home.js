@@ -12,11 +12,12 @@ import { FilterByCategory } from './components/Filter/FilterByCategory';
 import { SubSection } from './components/SubSection';
 import axiosClient from 'lib/axios';
 const listCategory = [
-    { name: 'LifeStyle', class: 'profile', index: 2 },
-    { name: 'Travel', class: 'contact', index: 3 },
-    { name: 'Fashion', class: 'last', index: 4 },
-    { name: 'Sports', class: 'Sport', index: 5 },
-    { name: 'Technology', class: 'technology', index: 6 },
+    { name: 'All', class: 'all', index: 1 },
+    { name: 'Football', class: 'football', index: 2 },
+    { name: 'Basketball', class: 'basketball', index: 3 },
+    { name: 'Tennis', class: 'tennis', index: 4 },
+    { name: 'Racing', class: 'racing', index: 5 },
+    
 ];
 
 function Home(props) {
@@ -26,15 +27,23 @@ function Home(props) {
 
     const location = useLocation();
     const [newsList, setNewsList] = useState([]);
+    const [recentPost,setRecentPost]=useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchValue,setSearchValue]=useState(1);
+    // const [queryParams, setQueryParams] = useState({});
+    console.log(searchValue)
     const queryParams = useMemo(() => {
         const params = queryString.parse(location.search);
         
+        if(params.listCate){
+            setSearchValue(+params.listCate)
+            
+        }
 
         return {
             ...params,
             pageIndex: Number(params.pageIndex) || 1,
-            pageSize: Number(params.pageSize) || 3,
+            pageSize: Number(params.pageSize) || 8,
             category: '',
         };
     }, [location.search]);
@@ -45,21 +54,23 @@ function Home(props) {
         page: 1,
     });
     console.log("pagination & query")
-    console.log(pagination)
-    console.log(queryParams)
+    // console.log(queryParams)
+    // console.log(location.search)
+    
 
     useEffect(() => {
         (async () => {
             try {
+                const {data} = await axiosClient.post(`/product/getAllProductByCategory?pageIndex=${queryParams.pageIndex-1}&searchValue=${searchValue}`);
+                console.log(data.totalitems);
+                setNewsList(data.products)
+
                 const {  pagination } = await newsApi.getAll({
                     ...queryParams,
                     keyWord: queryParams.keyWord ? queryParams.keyWord : '',
+                    newList2:data.totalitems
                 });
-               
                 setPagination(pagination);
-                const {data} = await axiosClient.post(`/product/getAllProduct?pageIndex=${queryParams.pageIndex-1}`);
-                console.log(data.products);
-                setNewsList(data.products)
                 
             } catch (error) {
                 console.log('Failed to fetch product list: ', error);
@@ -67,6 +78,38 @@ function Home(props) {
             setLoading(false);
         })();
     }, [queryParams]);
+
+    useEffect(()=>{
+        (async () => {
+            try {
+                const {data} = await axiosClient.post(`/product/recentPost`);
+                console.log(data)
+                setRecentPost(data)
+                
+            } catch (error) {
+                console.log('Failed to fetch product list: ', error);
+            }
+            setLoading(false);
+        })();
+
+    },[newsList])
+
+    // useEffect(()=>{
+    //     (async () => {
+    //         try {
+    //             const {data} = await axiosClient.post(`/product/ScoreBoardByCategory?id=${searchValue==1||searchValue==2?1:searchValue}`);
+    //             console.log(data)
+    //             console.log("aaaaaaa")
+           
+                
+    //         } catch (error) {
+    //             console.log('Failed to fetch product list: ', error);
+    //         }
+    //         setLoading(false);
+    //     })();
+
+    // },[queryParams])
+    
 
     const handlePageChange = (page) => {
         const filters = {
@@ -97,6 +140,8 @@ function Home(props) {
     };
 
     const handleFilterChange = (newFilters) => {
+        console.log("handleFilterChangeee")
+        console.log(newFilters)
         const filters = {
             ...queryParams,
             ...newFilters,
@@ -173,7 +218,7 @@ function Home(props) {
                                 </div>
                             </div>
                             <div className="col-lg-4">
-                                <SubSection onSearch={handleSearchFilter} />
+                                <SubSection recentPost={recentPost} onSearch={handleSearchFilter} />
                             </div>
                         </div>
                     </div>

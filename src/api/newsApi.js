@@ -5,6 +5,7 @@ const api = {
     async getAll(params) {
         // Transform pageIndex to _start
         const newParams = { ...params };
+        const newList2=params.newList2;
         newParams._start = !params.pageIndex || params.pageIndex <= 1 ? 0 : (params.pageIndex - 1) * (params.pageSize || 50);
         // Remove un-needed key
         delete newParams.pageIndex;
@@ -182,11 +183,11 @@ const api = {
         // const contents = productData?.content;
         // Build response and return
         return {
-            data: newsList,
+            data: [],
             pagination: {
                 page: params.pageIndex,
                 limit: params.pageSize,
-                total: newsList.length,
+                total: newList2,
             },
         };
     },
