@@ -112,6 +112,8 @@ function Home(props) {
     },[queryParams])
     
 
+    
+
     const handlePageChange = (page) => {
         const filters = {
             ...queryParams,

@@ -1,19 +1,38 @@
 // @flow
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ScoreBoard } from './Scoreboard';
-
+import axiosClient from 'lib/axios';
 export const SubSection = (props) => {
     const { onSearch ,recentPost,scoreBoard} = props;
     const [searchValue, setSearchValue] = useState('');
+    const [newSearch,setNewSearch]=useState([]);
     const navigate = useNavigate();
+console.log(searchValue.length)
+
+    useEffect(()=>{
+            (async () => {
+                try {
+                    const {data} = await axiosClient.post(`/product/SearchProduct?searchValue=${searchValue.length>=1?searchValue:1}`);
+                    console.log(data.content)
+                    setNewSearch(data.content)
+                    
+                    
+                } catch (error) {
+                    console.log('Failed to fetch product list: ', error);
+                }
+             
+            })();
+       
+
+    },[searchValue])
     return (
         <>
             <div className="blog_right_sidebar">
                 <aside className="single_sidebar_widget search_widget">
-                    <form action="#">
-                        <div className="form-group">
-                            <div className="input-group mb-3">
+                    <form action="#" style={{position:"relative"}}>
+                        <div className="form-group" style={{margin:0}}>
+                            <div className="input-group">
                                 <input
                                     type="text"
                                     className="form-control"
@@ -27,6 +46,19 @@ export const SubSection = (props) => {
                                     </button>
                                 </div>
                             </div>
+                        </div>
+                        <div className='drop-down-container'  style={{backgroundColor:"#f7f7f7",position:"absolute",width:"100%"}}>
+                            <ul>
+                                {
+                                    newSearch.map((item,index)=>{
+
+                                     return   <li key={index} style={{cursor:"pointer"}}>
+                                            <img src={item.imageEntity?.[1]?.url} style={{width:"50px",height:"50px",objectFit:"contain"}} />
+                                            <span>{item.name}</span>
+                                        </li>                      
+                                    })
+                                }
+                            </ul>
                         </div>
                     </form>
                 </aside>
@@ -50,6 +82,7 @@ export const SubSection = (props) => {
                    
                 </aside>
             </div>
+           
         </>
     );
 };
