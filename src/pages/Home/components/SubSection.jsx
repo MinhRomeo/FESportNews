@@ -5,24 +5,26 @@ import { ScoreBoard } from './Scoreboard';
 import axiosClient from 'lib/axios';
 export const SubSection = (props) => {
     const { onSearch ,recentPost,scoreBoard} = props;
-    const [searchValue, setSearchValue] = useState('');
+    const [searchValue, setSearchValue] = useState("");
     const [newSearch,setNewSearch]=useState([]);
     const navigate = useNavigate();
 console.log(searchValue.length)
 
     useEffect(()=>{
-            (async () => {
-                try {
-                    const {data} = await axiosClient.post(`/product/SearchProduct?searchValue=${searchValue.length>=1?searchValue:1}`);
-                    console.log(data.content)
-                    setNewSearch(data.content)
-                    
-                    
-                } catch (error) {
-                    console.log('Failed to fetch product list: ', error);
-                }
-             
-            })();
+            setTimeout(()=>{
+                (async () => {
+                    try {
+                        const {data} = await axiosClient.post(`/product/SearchProduct?searchValue=${searchValue.length>=1?searchValue:1}`);
+                        console.log(data.content)
+                        setNewSearch(data.content)
+                        
+                        
+                    } catch (error) {
+                        console.log('Failed to fetch product list: ', error);
+                    }
+                 
+                })();
+            },500)
        
 
     },[searchValue])
@@ -52,10 +54,12 @@ console.log(searchValue.length)
                                 {
                                     newSearch.map((item,index)=>{
 
-                                     return   <li key={index} style={{cursor:"pointer"}}>
-                                            <img src={item.imageEntity?.[1]?.url} style={{width:"50px",height:"50px",objectFit:"contain"}} />
-                                            <span>{item.name}</span>
-                                        </li>                      
+                                     return   <li key={index} style={{cursor:"pointer"}} onClick={()=>{
+                                        navigate(`/${item?.id}`, { replace: true })
+                                     }}>
+                                                    <img src={item.imageEntity?.[1]?.url} style={{width:"50px",height:"50px",objectFit:"contain"}} />
+                                                    <span>{item.name}</span>
+                                            </li>                      
                                     })
                                 }
                             </ul>
