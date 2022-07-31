@@ -83,7 +83,7 @@ function Header(props) {
                                                 {
                                                  userName!=null?<div style={{display:"flex",height:"30px"}}>
                                                                     <p>{userName}</p>
-                                                                    <button onClick={handleLogOut}>Thoát</button>   
+                                                                    <button onClick={handleLogOut}>{t('header.logout')}</button>   
                                                     </div>:
                                                         <div>
                                                             <li>

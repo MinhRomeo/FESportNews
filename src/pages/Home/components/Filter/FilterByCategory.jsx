@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-
+import { useTranslation } from 'react-i18next';
 export const FilterByCategory = (props) => {
     const { listCategory, onChange } = props;
 
@@ -10,11 +10,12 @@ export const FilterByCategory = (props) => {
         console.log(newListCategory);
         onChange({ listCate: newListCategory });
     };
+    const { t, i18n } = useTranslation();
     return (
         <div className="row d-flex justify-content-bnetween">
             <div className="col-lg-3 col-md-3">
                 <div className="section-tittle mb-30">
-                    <h3>Whats New</h3>
+                    <h3>{t('home.whatsnew')}</h3>
                 </div>
             </div>
             <div className="col-lg-9 col-md-9">

@@ -1,13 +1,14 @@
 // @flow
 import * as React from 'react';
 import './Scoreboard.scss';
-
+import { useTranslation } from 'react-i18next';
 export const ScoreBoard = (props) => {
     const {scoreBoard}=props;
+    const { t, i18n } = useTranslation();
     return (
         <div className="scoreboard">
             <div className="scoreboard__header">
-                <h5>Score board</h5>
+                <h5>{t('home.scoreboard')}</h5>
             </div>
             <ul className="scoreboard__list">
                 {

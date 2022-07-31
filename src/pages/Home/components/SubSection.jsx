@@ -3,11 +3,13 @@ import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ScoreBoard } from './Scoreboard';
 import axiosClient from 'lib/axios';
+import { useTranslation } from 'react-i18next';
 export const SubSection = (props) => {
     const { onSearch ,recentPost,scoreBoard} = props;
     const [searchValue, setSearchValue] = useState("");
     const [newSearch,setNewSearch]=useState([]);
     const navigate = useNavigate();
+    const { t, i18n } = useTranslation();
 console.log(searchValue.length)
 
     useEffect(()=>{
@@ -38,7 +40,7 @@ console.log(searchValue.length)
                                 <input
                                     type="text"
                                     className="form-control"
-                                    placeholder="Search Keyword"
+                                    placeholder={t('search.placehoder')}
                                     value={searchValue}
                                     onChange={(e) => setSearchValue(e.target.value)}
                                 />
@@ -68,7 +70,7 @@ console.log(searchValue.length)
                 </aside>
                 <ScoreBoard scoreBoard={scoreBoard}/>
                 <aside className="single_sidebar_widget popular_post_widget">
-                    <h3 className="widget_title">Top</h3>
+                    <h3 className="widget_title">{t('home.lastnews')}</h3>
                     {
                         recentPost.map((item,index)=>{
                           return  <div className="media post_item" key={index}>

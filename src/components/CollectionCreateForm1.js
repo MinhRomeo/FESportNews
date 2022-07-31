@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button, Checkbox, Col, Form, Input, Modal, Row, Tooltip } from 'antd';
 // import "antd/dist/antd.css";
 import { QuestionCircleOutlined } from '@ant-design/icons';
-
+import { useTranslation } from 'react-i18next';
 const tailFormItemLayout = {
     wrapperCol: {
         xs: {
@@ -42,13 +42,13 @@ const CollectionCreateForm1 = ({ visible, onCreate, onCancel }) => {
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
     };
-
+    const { t, i18n } = useTranslation();
     return (
         <Modal
             visible={visible}
-            title="Register"
-            okText="Register"
-            cancelText="Cancel"
+            title={t('register.register')}
+            okText={t('register.submit')}
+            cancelText={t('register.cancel')}
             onCancel={onCancel}
             onOk={() => {
                 form.validateFields()
@@ -74,7 +74,7 @@ const CollectionCreateForm1 = ({ visible, onCreate, onCancel }) => {
             >
                 <Form.Item
                     name="email"
-                    label="E-mail"
+                    label={t('register.mail')}
                     rules={[
                         {
                             type: 'email',
@@ -88,10 +88,30 @@ const CollectionCreateForm1 = ({ visible, onCreate, onCancel }) => {
                 >
                     <Input />
                 </Form.Item>
-
+                <Form.Item
+                    name="userName"
+                    label={
+                        <span>
+                            {t('register.username')}
+                            <Tooltip title="What do you want others to call you?">
+                                {/* <QuestionCircleOutlined /> */}
+                            </Tooltip>
+                        </span>
+                    }
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your userName!',
+                            whitespace: true,
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+             
                 <Form.Item
                     name="password"
-                    label="Password"
+                    label={t('register.password')}
                     rules={[
                         {
                             required: true,
@@ -105,7 +125,7 @@ const CollectionCreateForm1 = ({ visible, onCreate, onCancel }) => {
 
                 <Form.Item
                     name="confirm"
-                    label="Confirm Password"
+                    label={t('register.confirm')}
                     dependencies={['password']}
                     hasFeedback
                     rules={[
@@ -127,27 +147,7 @@ const CollectionCreateForm1 = ({ visible, onCreate, onCancel }) => {
                     <Input.Password />
                 </Form.Item>
 
-                <Form.Item
-                    name="userName"
-                    label={
-                        <span>
-                            userName
-                            <Tooltip title="What do you want others to call you?">
-                                {/* <QuestionCircleOutlined /> */}
-                            </Tooltip>
-                        </span>
-                    }
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your userName!',
-                            whitespace: true,
-                        },
-                    ]}
-                >
-                    <Input />
-                </Form.Item>
-             
+                
 
                 <Form.Item
                     name="agreement"
@@ -160,7 +160,7 @@ const CollectionCreateForm1 = ({ visible, onCreate, onCancel }) => {
                     {...tailFormItemLayout}
                 >
                     <Checkbox>
-                        I have read the <a href="">agreement</a>
+                    {t('register.title')} <a href="">{t('register.agreement')}</a>
                     </Checkbox>
                 </Form.Item>
             </Form>

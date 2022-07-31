@@ -11,6 +11,7 @@ import newsApi ,{api2}from 'api/newsApi';
 import { FilterByCategory } from './components/Filter/FilterByCategory';
 import { SubSection } from './components/SubSection';
 import axiosClient from 'lib/axios';
+
 const listCategory = [
     { name: 'All', class: 'all', index: 1 },
     { name: 'Football', class: 'football', index: 2 },

@@ -1,6 +1,7 @@
 //Adding antd modules and style
 import { Form, Input, Modal } from 'antd';
 // import "antd/dist/antd.css";
+import { useTranslation } from 'react-i18next';
 
 const CollectionCreateForm2 = ({ visible, onCreate, onCancel }) => {
     const [form] = Form.useForm();
@@ -26,12 +27,13 @@ const CollectionCreateForm2 = ({ visible, onCreate, onCancel }) => {
     //         }
     //     } catch (error) {}
     // };
+    const { t, i18n } = useTranslation();
     return (
         <Modal
             visible={visible}
-            title="Login"
-            okText="Login"
-            cancelText="Cancel"
+            title= {t('login.welcom')}
+            okText= {t('login.login')}
+            cancelText={t('login.cancel')}
             onCancel={onCancel}
             onOk={() => {
                 form.validateFields()
@@ -54,7 +56,7 @@ const CollectionCreateForm2 = ({ visible, onCreate, onCancel }) => {
             >
                 <Form.Item
                     name="username"
-                    label="Username"
+                    label={t('login.username')}
                     rules={[
                         {
                             type: 'username',
@@ -71,7 +73,7 @@ const CollectionCreateForm2 = ({ visible, onCreate, onCancel }) => {
                 </Form.Item>
                 <Form.Item
                     name="password"
-                    label="Password"
+                    label={t('login.password')}
                     rules={[
                         {
                             required: true,

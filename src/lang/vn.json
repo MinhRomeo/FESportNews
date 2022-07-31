@@ -11,7 +11,8 @@
     "languages":"Tiếng Việt",
     "languages_2":"Vietnamese",
     "login": "Đăng nhập",
-    "register": "Đăng ký"
+    "register": "Đăng ký",
+    "logout" : "Đăng xuất"
   },
 
   "footer": {
@@ -26,11 +27,12 @@
   "product": "Sản phẩm",
 
   "login": {
-    "welcom": "Chào mừng bạn",
+    "welcom": "Chào mừng bạn đến với SportNewMT",
     "remember": "Nhớ mật khẩu",
-    "passwd": "Quên mật khẩu",
+    "username": "Tên người dùng",
+    "password": "Mật khẩu",
     "login": "Đăng nhập",
-    "or": "Hoặc",
+    "cancel": "Hủy",
     "register": "Đăng ký ngay",
     "err": "Tên đăng nhập hoặc mật khẩu không hợp lệ"
   },
@@ -39,18 +41,17 @@
     "register": "Đăng ký tài khoản",
     "username": "Tên người dùng",
     "mail": "E-mail",
-    "code": "Mã code",
+    "cancel": "Hủy",
     "password": "Mật khẩu",
-    "phone": "Số điện thoại",
-    "gender": "Giới tính",
-    "male": "Nam",
-    "female": "Nữ",
-    "other": "Khác",
+    "confirm": "Nhập lại mật khẩu",
     "title": "Tôi đã đọc kỹ",
     "agreement": "cam kết",
-    "verify": "Lấy mã"
+    "submit": "Đăng kí"
   },
   "home":{
+    "whatsnew" :"Hôm nay có gì?",
+    "lastnews": "Bài đăng mới nhất",
+    "scoreboard": "Bảng tỉ số",
     "title":"Quần áo",
     "contents_1":"100% uy tín và chất lượng",
     "contents_2":"Miễn phí vận chuyển khi mua trên 2 sản phẩm",
@@ -68,7 +69,7 @@
   },
   "search":{
     "button":"TÌM KIẾM",
-    "placehoder":"Bạn cần tìm mặt hàng nào?"
+    "placehoder":"Bạn cần tìm kiếm thông tin gì?"
   },
   "navHeader":{
     "categories":"Các danh mục",

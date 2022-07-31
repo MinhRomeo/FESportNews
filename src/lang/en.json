@@ -10,7 +10,7 @@
     "video":"Videos",
     "languages":"English",
     "languages_2":"Vietnamese",
-
+    "logout" : "Log out",
     "login": "Login",
     "register": "Register"
   },
@@ -27,21 +27,23 @@
   "product": "Product",
 
   "login": {
-    "welcom": "Welcome to",
+    "welcom": "Welcome to SportNewMT",
     "remember": "Remember me",
-    "passwd": "Forgot password",
+    "username": "Username",
+    "password": "Password",
     "login": "Log in",
-    "or": "Or",
+    "cancel": "Cancel",
     "register": "Register now",
     "err": "UserName or password wrong"
   },
 
   "register": {
-    "register": "Register to",
-    "username": "username",
+    "register": "Register",
+    "username": "Username",
     "mail": "E-mai",
-    "code": "Code",
+    "cancel": "Cancel",
     "password": "Password",
+    "confirm": "Confirm Password",
     "phone": "Phone Number",
     "gender": "Gender",
     "male": "Male",
@@ -49,9 +51,13 @@
     "other": "Other",
     "title": "I have read the",
     "agreement": "agreement",
-    "verify": " Get verify"
+    "verify": " Get verify",
+    "submit": "Register"
   },
   "home":{
+    "whatsnew" :"What's News?",
+    "lastnews": "Last News",
+    "scoreboard": "Score Board",
     "title":"Clothes",
     "contents_1":"100% prestige and quality",
     "contents_2":"Free shipping when you buy over 2 products",
@@ -69,7 +75,7 @@
   },
   "search":{
     "button":"SEARCH",
-    "placehoder":"What do you need?"
+    "placehoder":"Enter search keyword"
   },
   "navHeader":{
     "categories":"All categories",
