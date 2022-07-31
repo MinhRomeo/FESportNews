@@ -4,11 +4,14 @@ import { useSelector } from 'store';
 import { newsSelector } from 'utils/selectors';
 import { useParams } from 'react-router-dom';
 import newsApi ,{api3}from 'api/newsApi';
+import { parse } from 'query-string';
 function NewsDetail(props) {
     const { news } = useSelector(newsSelector);
     const newsId = useParams().newsId;
     console.log('NewsDetail ~ newsId', newsId);
     const [detailNew, setDetailNew] = useState({});
+  
+ 
     // const newsDetail = useMemo(() => {
     //     console.log('newsDetail ~ news.list', news.list);
     //     return news.list.find((news) => news.id.toString() === newsId);
@@ -37,13 +40,15 @@ function NewsDetail(props) {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 posts-list">
-                        <div className="single-post">
-                            <div className="feature-img" style={{display:"flex"}}>
-                                <img className="img-fluid" style={{width:"400px",objectFit:"cover"}} src={detailNew?.imageEntity?.[0].url} alt="" />
-                                <img className="img-fluid"  style={{width:"400px",objectFit:"cover"}} src={detailNew?.imageEntity?.[1].url} alt="" />
+                        <div className="feature-img" >
+                            <h3 >
+                               {detailNew.name}
+                            </h3>
+                            <div className="feature-img" style={{display:"flex;margin-top:20"}}>
+                                <img className="img-fluid" style={{width:"100%",objectFit:"cover"}} src={detailNew?.imageEntity?.[0].url} alt="" />
+                                
                             </div>
                             <div className="blog_details">
-                                {/* <h2>{newsDetail.name}</h2> */}
                                 <ul className="blog-info-link mt-3 mb-4">
                                     <li>
                                         <a href="#">
@@ -63,9 +68,14 @@ function NewsDetail(props) {
                                       {detailNew.name}
                                     </div>
                                 </div>
-                                <p>
-                                    {detailNew.descriptions}
-                                </p>
+                                <div className="feature-img" style={{display:"flex;margin-top:20"}}>
+                                <img  className="img-fluid"  style={{width:"100%",objectFit:"cover"}} src={detailNew?.imageEntity?.[1].url} alt="" />
+                                </div>
+                                <div dangerouslySetInnerHTML={{ __html: detailNew.descriptions }} />
+                                  
+                                    
+             
+                          
                                
                             </div>
                         </div>
@@ -160,132 +170,6 @@ function NewsDetail(props) {
                     </div>
                     <div className="col-lg-4">
                         <div className="blog_right_sidebar">
-                            <aside className="single_sidebar_widget search_widget">
-                                <form action="#">
-                                    <div className="form-group">
-                                        <div className="input-group mb-3">
-                                            <input type="text" className="form-control" placeholder="Search Keyword" />
-                                            <div className="input-group-append">
-                                                <button className="btns" type="button">
-                                                    <i className="ti-search" />
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button className="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">
-                                        Search
-                                    </button>
-                                </form>
-                            </aside>
-                            {/* <aside className="single_sidebar_widget post_category_widget">
-                                <h4 className="widget_title">Category</h4>
-                                <ul className="list cat-list">
-                                    <li>
-                                        <a href="#" className="d-flex">
-                                            <p>Resaurant food</p>
-                                            <p>(37)</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="d-flex">
-                                            <p>Travel news</p>
-                                            <p>(10)</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="d-flex">
-                                            <p>Modern technology</p>
-                                            <p>(03)</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="d-flex">
-                                            <p>Product</p>
-                                            <p>(11)</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="d-flex">
-                                            <p>Inspiration</p>
-                                            <p>(21)</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="d-flex">
-                                            <p>Health Care</p>
-                                            <p>(21)</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </aside>
-                            <aside className="single_sidebar_widget popular_post_widget">
-                                <h3 className="widget_title">Recent Post</h3>
-                                <div className="media post_item">
-                                    <img src="assets/img/post/post_1.png" alt="post" />
-                                    <div className="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>From life was you fish...</h3>
-                                        </a>
-                                        <p>January 12, 2019</p>
-                                    </div>
-                                </div>
-                                <div className="media post_item">
-                                    <img src="assets/img/post/post_2.png" alt="post" />
-                                    <div className="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>The Amazing Hubble</h3>
-                                        </a>
-                                        <p>02 Hours ago</p>
-                                    </div>
-                                </div>
-                                <div className="media post_item">
-                                    <img src="assets/img/post/post_3.png" alt="post" />
-                                    <div className="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>Astronomy Or Astrology</h3>
-                                        </a>
-                                        <p>03 Hours ago</p>
-                                    </div>
-                                </div>
-                                <div className="media post_item">
-                                    <img src="assets/img/post/post_4.png" alt="post" />
-                                    <div className="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>Asteroids telescope</h3>
-                                        </a>
-                                        <p>01 Hours ago</p>
-                                    </div>
-                                </div>
-                            </aside>
-                            <aside className="single_sidebar_widget tag_cloud_widget">
-                                <h4 className="widget_title">Tag Clouds</h4>
-                                <ul className="list">
-                                    <li>
-                                        <a href="#">project</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">love</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">technology</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">travel</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">restaurant</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">life style</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">design</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">illustration</a>
-                                    </li>
-                                </ul>
-                            </aside> */}
                             <aside className="single_sidebar_widget instagram_feeds">
                                 <h4 className="widget_title">Instagram Feeds</h4>
                                 <ul className="instagram_row flex-wrap">

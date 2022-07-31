@@ -10,9 +10,8 @@ export const FilterByCategory = (props) => {
         console.log(newListCategory);
         onChange({ listCate: newListCategory });
     };
-
     return (
-        <div className="row d-flex justify-content-between">
+        <div className="row d-flex justify-content-bnetween">
             <div className="col-lg-3 col-md-3">
                 <div className="section-tittle mb-30">
                     <h3>Whats New</h3>
