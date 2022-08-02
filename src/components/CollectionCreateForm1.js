@@ -64,6 +64,7 @@ const CollectionCreateForm1 = ({ visible, onCreate, onCancel }) => {
                 ]);
             }
            
+           
         } catch (error) {}
     };
     const { t, i18n } = useTranslation();
@@ -108,8 +109,11 @@ const CollectionCreateForm1 = ({ visible, onCreate, onCancel }) => {
                         {
                             required: true,
                             message: 'Please input your E-mail!',
+
                         },
+                        
                     ]}
+                    hasFeedback
                 >
                     <Input />
                 </Form.Item>
@@ -130,6 +134,7 @@ const CollectionCreateForm1 = ({ visible, onCreate, onCancel }) => {
                             whitespace: true,
                         },
                     ]}
+                    hasFeedback
                 >
                     <Input />
                 </Form.Item>
