@@ -11,7 +11,6 @@ import newsApi ,{api2}from 'api/newsApi';
 import { FilterByCategory } from './components/Filter/FilterByCategory';
 import { SubSection } from './components/SubSection';
 import axiosClient from 'lib/axios';
-
 const listCategory = [
     { name: 'All', class: 'all', index: 1 },
     { name: 'Football', class: 'football', index: 2 },
@@ -33,7 +32,7 @@ function Home(props) {
     const [searchValue,setSearchValue]=useState(1);
     const [scoreBoard,setScoreBoard]=useState([]);
     // const [queryParams, setQueryParams] = useState({});
-    console.log(searchValue)
+    console.log("searchValuee"+searchValue)
     const queryParams = useMemo(() => {
         const params = queryString.parse(location.search);
         

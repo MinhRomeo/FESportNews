@@ -4,7 +4,10 @@ import { Button, Checkbox, Col, Form, Input, Modal, Row, Tooltip } from 'antd';
 // import "antd/dist/antd.css";
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import axiosClient from 'lib/axios';
+import authApi from 'api/api';
 const tailFormItemLayout = {
+
     wrapperCol: {
         xs: {
             span: 24,
@@ -36,11 +39,32 @@ const formItemLayout = {
     },
 };
 
+
 const CollectionCreateForm1 = ({ visible, onCreate, onCancel }) => {
     const [form] = Form.useForm();
 
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
+    };
+    const handleValidateEmail = async (e) => {
+        const emailValue = e.target.value;
+        try {
+            const request = {
+                email: emailValue,
+            };
+            console.log(request);
+            const response = await authApi.checkExistAccount(emailValue);
+            console.log(response)
+            if(response.message != 1){
+                form.setFields([
+                    {
+                        name: 'email',
+                        errors: ['Email is already exist'],
+                    },
+                ]);
+            }
+           
+        } catch (error) {}
     };
     const { t, i18n } = useTranslation();
     return (
@@ -75,6 +99,7 @@ const CollectionCreateForm1 = ({ visible, onCreate, onCancel }) => {
                 <Form.Item
                     name="email"
                     label={t('register.mail')}
+                    onBlur={handleValidateEmail}
                     rules={[
                         {
                             type: 'email',

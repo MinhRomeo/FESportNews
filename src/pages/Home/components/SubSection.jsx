@@ -9,6 +9,7 @@ export const SubSection = (props) => {
     const [searchValue, setSearchValue] = useState("");
     const [newSearch,setNewSearch]=useState([]);
     const navigate = useNavigate();
+
     const { t, i18n } = useTranslation();
 console.log(searchValue.length)
 
@@ -19,6 +20,7 @@ console.log(searchValue.length)
                         const {data} = await axiosClient.post(`/product/SearchProduct?searchValue=${searchValue.length>=1?searchValue:1}`);
                         console.log(data.content)
                         setNewSearch(data.content)
+                        
                         
                         
                     } catch (error) {
@@ -79,7 +81,7 @@ console.log(searchValue.length)
                                         <span onClick={() => navigate(`/${item?.id}`, { replace: true })}>
                                             <h3  style={{cursor:"pointer"}}>{item?.name}</h3>
                                         </span>
-                                        <p>January 12, 2019</p>
+                                        <p>{item?.dateCreated}</p>
                                     </div>
                                 </div>
                         })

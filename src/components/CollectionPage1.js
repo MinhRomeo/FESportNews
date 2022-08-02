@@ -17,7 +17,6 @@ const CollectionsPage1 = () => {
     const { t, i18n } = useTranslation();
 
     const onCreate = async (values) => {
-        console.log('Received values of form: ', values);
         setVisible(false);
         try {
             await dispatch(register(values.email, values.password, values.userName));
@@ -49,7 +48,7 @@ const CollectionsPage1 = () => {
                 visible={visible}
                 onCreate={onCreate}
                 onCancel={() => {
-                    setVisible(false);
+              setVisible(false);
                 }}
             />
         </div>

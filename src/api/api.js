@@ -27,7 +27,8 @@ const api = {
 
     // Check Exist Account
     checkExistAccount: (email) => {
-        return axiosClient.get(`/account/check-account-exist`, { params: { email: email } });
+        console.log(email)
+        return axiosClient.post(`/auth/checkEmail?email=`+ email);
     },
 
     /* Update recruiter Profile */
